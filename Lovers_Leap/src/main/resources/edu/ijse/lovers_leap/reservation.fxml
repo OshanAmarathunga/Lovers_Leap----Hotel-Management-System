@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="531.0" prefWidth="1117.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ijse.lovers_leap.fxmlController.ReservationControllerFxml">
+    <children>
+        <AnchorPane prefHeight="54.0" prefWidth="1117.0" style="-fx-background-color: #7CC8F5;">
+            <children>
+                <ImageView fitHeight="42.0" fitWidth="38.0" layoutX="457.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images/reservation.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="506.0" layoutY="16.0" text="Reservation">
+                    <font>
+                        <Font name="Arial Rounded MT Bold" size="18.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <TableView layoutX="834.0" layoutY="81.0" prefHeight="436.0" prefWidth="268.0">
+            <columns>
+                <TableColumn prefWidth="48.0" text="Cust ID" />
+                <TableColumn prefWidth="116.7999267578125" text="Name" />
+                <TableColumn prefWidth="100.7999267578125" text="Contact No" />
+            </columns>
+        </TableView>
+        <TableView layoutX="512.0" layoutY="81.0" prefHeight="436.0" prefWidth="310.0">
+            <columns>
+                <TableColumn prefWidth="61.59991455078125" text="Room ID" />
+                <TableColumn prefWidth="88.800048828125" text="Category" />
+                <TableColumn prefWidth="75.0" text="Status" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>
