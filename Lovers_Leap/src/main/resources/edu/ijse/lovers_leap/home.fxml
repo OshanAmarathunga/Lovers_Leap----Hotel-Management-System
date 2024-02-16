@@ -27,7 +27,7 @@
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Button>
-                <Button fx:id="btnAvailabeRooms" layoutX="23.0" layoutY="280.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="158.0" text="Room Management">
+                <Button fx:id="btnAvailabeRooms" layoutX="23.0" layoutY="280.0" mnemonicParsing="false" onAction="#btnRoomManagementAction" prefHeight="26.0" prefWidth="158.0" text="Room Management">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>

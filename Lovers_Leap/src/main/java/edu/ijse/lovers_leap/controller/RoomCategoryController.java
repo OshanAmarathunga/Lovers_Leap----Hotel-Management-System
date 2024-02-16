@@ -22,7 +22,7 @@ public class RoomCategoryController {
     public String updateRoomCategory(RoomCategoryDto dto) throws Exception{
         return roomCategoryService.updateRoomCategory(dto);
     }
-    public RoomCategoryDto getIdByStringName(String sName) throws Exception{
+    public ArrayList<RoomCategoryDto> getIdByStringName(String sName) throws Exception{
         return roomCategoryService.getIdByStringName(sName);
     }
 

@@ -58,7 +58,7 @@ CONSTRAINT PRIMARY KEY (Room_Id),
 CONSTRAINT FOREIGN KEY(Cat_ID) REFERENCES Room_Category (CatID),
 CONSTRAINT FOREIGN KEY(Hotel_ID) REFERENCES HotelBranchDetail (Hotel_ID));
 
-
+INSERT INTO Room VALUES('R01',2,1,3,'Available');
 -------------------------------------------------------------------------------------------------------------------------------------
 
 

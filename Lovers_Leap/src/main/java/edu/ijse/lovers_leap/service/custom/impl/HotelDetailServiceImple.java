@@ -32,7 +32,8 @@ public class HotelDetailServiceImple implements HotelDetailService {
 
     @Override
     public HotelDto get(String sId) throws Exception {
-        return null;
+        HotelDetailEntity ety=hotelDetailDao.getId(sId);
+        return new HotelDto(ety.getHotel_ID(),ety.getName(),ety.getAddress(),ety.getDistrict(),ety.getContactNo());
     }
 
     @Override
@@ -57,5 +58,15 @@ public class HotelDetailServiceImple implements HotelDetailService {
         }else {
             return "Fail to Delete";
         }
+    }
+
+    @Override
+    public ArrayList<HotelDto> getHotelDeatilsByStringName(String name) throws Exception {
+        ArrayList<HotelDto> dtos=new ArrayList<>();
+        ArrayList<HotelDetailEntity> etys=hotelDetailDao.getHotelDetailByStringName(name);
+        for(HotelDetailEntity Ety:etys){
+            dtos.add(new HotelDto(Ety.getHotel_ID(),Ety.getName(),Ety.getAddress(),Ety.getDistrict(),Ety.getContactNo()));
+        }
+        return dtos;
     }
 }

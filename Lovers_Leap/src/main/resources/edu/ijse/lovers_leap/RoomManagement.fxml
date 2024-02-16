@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="531.0" prefWidth="1117.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ijse.lovers_leap.fxmlController.RoomManagementControllerFxml">
     <children>
         <AnchorPane prefHeight="54.0" prefWidth="1117.0" style="-fx-background-color: #7CC8F5;">
@@ -28,7 +27,7 @@
                 </Label>
             </children>
         </AnchorPane>
-        <TableView fx:id="tblRooms" layoutX="515.0" layoutY="81.0" prefHeight="442.0" prefWidth="590.0">
+        <TableView fx:id="tblRooms" layoutX="515.0" layoutY="81.0" onMouseClicked="#tblMouseClickAction" prefHeight="442.0" prefWidth="590.0">
             <columns>
                 <TableColumn fx:id="colRoomNo" prefWidth="75.0" text="Room No" />
                 <TableColumn fx:id="colCategoryName" prefWidth="163.2000732421875" text="Category Name" />

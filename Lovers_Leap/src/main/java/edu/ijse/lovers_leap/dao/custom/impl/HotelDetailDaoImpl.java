@@ -20,7 +20,8 @@ public class HotelDetailDaoImpl implements HotelDetailDao {
 
     @Override
     public HotelDetailEntity getId(String s) throws Exception {
-        return null;
+        ResultSet rst=CrudUtil.executeQuery("SELECT * FROM hotelbranchdetail WHERE NAME=?",s);
+        return new HotelDetailEntity(rst.getInt("Hotel_ID"),rst.getString("NAME"),rst.getString("ADDRESS"),rst.getString("District"),rst.getString("Contact_No"));
     }
 
     @Override
@@ -41,5 +42,15 @@ public class HotelDetailDaoImpl implements HotelDetailDao {
     @Override
     public boolean delete(Integer id) throws Exception {
         return CrudUtil.executeUpdate("DELETE FROM hotelbranchdetail WHERE Hotel_ID=?",id);
+    }
+
+    @Override
+    public ArrayList<HotelDetailEntity> getHotelDetailByStringName(String name) throws Exception {
+        ResultSet rst=CrudUtil.executeQuery("SELECT * FROM hotelbranchdetail WHERE NAME=?",name);
+        ArrayList<HotelDetailEntity> ety =new ArrayList<>();
+        while (rst.next()){
+            ety.add(new HotelDetailEntity(rst.getInt("Hotel_ID"),rst.getString("NAME"),rst.getString("ADDRESS"),rst.getString("District"),rst.getString("Contact_No")));
+        }
+        return ety;
     }
 }

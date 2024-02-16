@@ -17,9 +17,9 @@ public class HotelDetailController {
         return hotelDetailService.updateHotelDetails(dto);
     }
 
-    public HotelDto getHotel(String sId) throws Exception{
-        return hotelDetailService.get(sId);
-    }
+//    public HotelDto getHotel(String sId) throws Exception{
+//        return hotelDetailService.get(sId);
+//    }
     public ArrayList<HotelDto> getAll() throws Exception{
         return hotelDetailService.getAll();
     }
@@ -30,5 +30,8 @@ public class HotelDetailController {
 
     public HotelDto getHotelbyID(int iId) throws Exception{
         return hotelDetailService.getIdType(iId);
+    }
+    public ArrayList<HotelDto> getHotelByStringName(String sId) throws Exception{
+        return hotelDetailService.getHotelDeatilsByStringName(sId);
     }
 }

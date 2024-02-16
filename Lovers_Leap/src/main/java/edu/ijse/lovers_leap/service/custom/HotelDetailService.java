@@ -12,4 +12,7 @@ public interface HotelDetailService extends SuperService {
     HotelDto getIdType(int iId) throws Exception;
     ArrayList<HotelDto> getAll() throws Exception;
     String deleteHotel(int iId) throws Exception;
+
+    ArrayList<HotelDto> getHotelDeatilsByStringName(String name) throws Exception;
+
 }

@@ -50,7 +50,13 @@ public class RoomCategoryServiceImpl implements RoomCategoryService {
     }
 
     @Override
-    public RoomCategoryDto getIdByStringName(String sName) throws Exception {
-        return null;//roomCategoryDao.getIdByStaringName(sName);
+    public ArrayList<RoomCategoryDto> getIdByStringName(String sName) throws Exception {
+        ArrayList<RoomCategoryDto> dtos=new ArrayList<>();
+        ArrayList<RoomCategoryEntity> rEnty=roomCategoryDao.getIdByStaringName(sName);
+        for( RoomCategoryEntity ety:rEnty ){
+            dtos.add(new RoomCategoryDto(ety.getCatID(),ety.getRoomTypeName(),ety.getCostPerNight(),ety.getDescription()));
+        }
+        return dtos;
+
     }
 }

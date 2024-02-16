@@ -232,6 +232,20 @@ public class HomeFxmlController implements Initializable {
         stage.setResizable(false);
 
     }
+    @FXML
+    void btnRoomManagementAction(ActionEvent event) {
+        try {
+            root = FXMLLoader.load(getClass().getResource("/edu/ijse/lovers_leap/RoomManagement.fxml"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        stage.centerOnScreen();
+        stage.setResizable(false);
+    }
 
     @FXML
     void cmbCustomerCountryKeyPressAction(KeyEvent event) {

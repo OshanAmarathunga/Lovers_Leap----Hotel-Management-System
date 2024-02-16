@@ -79,7 +79,7 @@ public class HotelDetailsControllerFxml implements Initializable {
             } catch (Exception e) {
                 Alert alert2 = new Alert(Alert.AlertType.ERROR);
                 alert2.setTitle("Submission Error!!");
-                alert2.setContentText("Fail to submit the Hotel details !");
+                alert2.setContentText(e.getMessage());
                 Optional<ButtonType> result = alert2.showAndWait();
             }
 

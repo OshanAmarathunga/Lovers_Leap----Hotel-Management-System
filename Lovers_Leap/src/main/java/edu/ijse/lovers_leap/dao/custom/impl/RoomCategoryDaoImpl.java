@@ -46,8 +46,12 @@ public class RoomCategoryDaoImpl implements RoomCategoryDao {
     }
 
     @Override
-    public RoomCategoryEntity getIdByStaringName(String sName) throws Exception {
-        ResultSet rst= CrudUtil.executeQuery("SELECT * FROM room_category WHERE Room_Type_Name=?",sName);
-        return null;
+    public ArrayList<RoomCategoryEntity> getIdByStaringName(String sName) throws Exception {
+       ResultSet rst= CrudUtil.executeQuery("SELECT * FROM room_category WHERE Room_Type_Name=?",sName);
+        ArrayList<RoomCategoryEntity> ety=new ArrayList<>();
+        while (rst.next()){
+            ety.add(new RoomCategoryEntity(rst.getInt("CatID"),rst.getString("Room_Type_Name"),rst.getDouble("Cost_Per_Night"),rst.getString("Discription")));
+        }
+        return ety;
     }
 }
