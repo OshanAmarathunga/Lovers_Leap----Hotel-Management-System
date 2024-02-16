@@ -59,4 +59,10 @@ public class RoomCategoryServiceImpl implements RoomCategoryService {
         return dtos;
 
     }
+
+    @Override
+    public RoomCategoryDto get(int id) throws Exception {
+        RoomCategoryEntity ety=roomCategoryDao.get(id);
+        return new RoomCategoryDto(ety.getCatID(),ety.getRoomTypeName(),ety.getCostPerNight(),ety.getDescription());
+    }
 }

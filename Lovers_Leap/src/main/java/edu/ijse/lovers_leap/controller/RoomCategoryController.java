@@ -25,5 +25,8 @@ public class RoomCategoryController {
     public ArrayList<RoomCategoryDto> getIdByStringName(String sName) throws Exception{
         return roomCategoryService.getIdByStringName(sName);
     }
+    public RoomCategoryDto get(int id) throws Exception{
+        return roomCategoryService.get(id);
+    }
 
 }

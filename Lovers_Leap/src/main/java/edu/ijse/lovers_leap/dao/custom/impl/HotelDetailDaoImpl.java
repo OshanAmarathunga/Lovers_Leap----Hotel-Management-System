@@ -15,13 +15,24 @@ public class HotelDetailDaoImpl implements HotelDetailDao {
 
     @Override
     public HotelDetailEntity get(Integer id) throws Exception {
-        return null;
+        ResultSet rst=CrudUtil.executeQuery("SELECT * FROM hotelbranchdetail WHERE Hotel_ID=?",id);
+       while (rst.next()){
+           return new HotelDetailEntity(rst.getInt("Hotel_ID"),
+                   rst.getString("NAME"),
+                   rst.getString("ADDRESS"),
+                   rst.getString("District"),
+                   rst.getString("Contact_No"));
+       }
+       return null;
     }
 
     @Override
     public HotelDetailEntity getId(String s) throws Exception {
         ResultSet rst=CrudUtil.executeQuery("SELECT * FROM hotelbranchdetail WHERE NAME=?",s);
-        return new HotelDetailEntity(rst.getInt("Hotel_ID"),rst.getString("NAME"),rst.getString("ADDRESS"),rst.getString("District"),rst.getString("Contact_No"));
+        while (rst.next()){
+            return new HotelDetailEntity(rst.getInt("Hotel_ID"),rst.getString("NAME"),rst.getString("ADDRESS"),rst.getString("District"),rst.getString("Contact_No"));
+        }
+        return null;
     }
 
     @Override

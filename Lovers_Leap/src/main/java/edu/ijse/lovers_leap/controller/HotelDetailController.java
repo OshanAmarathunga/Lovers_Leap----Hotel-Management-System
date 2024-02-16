@@ -16,10 +16,6 @@ public class HotelDetailController {
     public String UpdateHotelDetails(HotelDto dto) throws Exception{
         return hotelDetailService.updateHotelDetails(dto);
     }
-
-//    public HotelDto getHotel(String sId) throws Exception{
-//        return hotelDetailService.get(sId);
-//    }
     public ArrayList<HotelDto> getAll() throws Exception{
         return hotelDetailService.getAll();
     }

@@ -11,4 +11,5 @@ public interface RoomCategoryService extends SuperService {
     String deleteRoomCategory(int rID) throws Exception;
     ArrayList<RoomCategoryDto> getAll( ) throws Exception;
     ArrayList<RoomCategoryDto> getIdByStringName( String sName) throws Exception;
+    RoomCategoryDto get(int id) throws Exception;
 }

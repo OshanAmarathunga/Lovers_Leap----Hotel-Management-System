@@ -16,7 +16,12 @@ public class RoomCategoryDaoImpl implements RoomCategoryDao {
 
     @Override
     public RoomCategoryEntity get(Integer id) throws Exception {
-        return null;
+        ResultSet rst=CrudUtil.executeQuery("SELECT * FROM room_category WHERE CatID=?",id);
+       while (rst.next()){
+           return new RoomCategoryEntity(rst.getInt("CatID"),rst.getString("Room_Type_Name"),rst.getDouble("Cost_Per_Night"),rst.getString("Discription"));
+       }
+       return null;
+
     }
 
     @Override

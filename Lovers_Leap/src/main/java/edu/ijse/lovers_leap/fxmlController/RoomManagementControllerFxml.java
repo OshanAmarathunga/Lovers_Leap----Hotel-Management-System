@@ -187,9 +187,17 @@ public class RoomManagementControllerFxml implements Initializable {
             txtNoOfBeds.setText(Integer.toString(select.getNoOfBeds()));
             cmbStatus.setPromptText(select.getStatus());
             try {
-                cmbHotel.setPromptText(hotelDetailController.getHotelbyID(Integer.parseInt(select.getHotelId())));
+                String hotel=hotelDetailController.getHotelbyID(select.getHotelId()).getName();
+                System.out.println(hotel);
+                cmbHotel.setPromptText(hotel);
+                String category=roomCategoryController.get(select.getCatId()).getRoomCatName();
+                System.out.println(category);
+                cmbCategory.setPromptText(category);
             } catch (Exception e) {
-                throw new RuntimeException(e);
+                Alert alert2 = new Alert(Alert.AlertType.ERROR);
+                alert2.setTitle("Error !");
+                alert2.setContentText(e.getMessage());
+                Optional<ButtonType> result2 = alert2.showAndWait();
             }
 
         }

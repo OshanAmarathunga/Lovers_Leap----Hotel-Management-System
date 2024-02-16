@@ -38,7 +38,8 @@ public class HotelDetailServiceImple implements HotelDetailService {
 
     @Override
     public HotelDto getIdType(int iId) throws Exception {
-        return null;
+        HotelDetailEntity ety=hotelDetailDao.get(iId);
+        return new HotelDto(ety.getHotel_ID(),ety.getName(),ety.getAddress(),ety.getDistrict(),ety.getContactNo());
     }
 
     @Override
