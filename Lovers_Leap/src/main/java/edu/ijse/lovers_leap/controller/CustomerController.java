@@ -28,4 +28,8 @@ public class CustomerController {
     public CustomerDto getCustomer(String nic) throws Exception{
         return customerService.getCustomer(nic);
     }
+
+    public CustomerDto getCustomrById(int id) throws Exception{
+        return customerService.getCustomerById(id);
+    }
 }

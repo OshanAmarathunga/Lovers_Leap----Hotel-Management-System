@@ -24,6 +24,18 @@ public class CustomerDaoImpl implements CustomerDao {
 
     @Override
     public CustomerEntity get(Integer id) throws Exception {
+        ResultSet rst= CrudUtil.executeQuery("SELECT * FROM customer WHERE Cus_Id=?",id);
+        while (rst.next()){
+            return new CustomerEntity(rst.getInt("Cus_Id"),
+                    rst.getString("First_Name"),
+                    rst.getString("Last_Name"),
+                    rst.getString("Address"),
+                    rst.getString("Country"),
+                    rst.getString("Gender"),
+                    rst.getString("Email"),
+                    rst.getString("contact_no"),
+                    rst.getString("NIC_no"));
+        }
         return null;
     }
 

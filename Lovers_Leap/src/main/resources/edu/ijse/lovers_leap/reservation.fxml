@@ -39,9 +39,9 @@
         <TableView fx:id="tblRoomStatus" layoutX="550.0" layoutY="89.0" onMouseClicked="#tblRoomStatusMouseClicked" prefHeight="427.0" prefWidth="310.0">
             <columns>
                 <TableColumn fx:id="colRoomIdRS" prefWidth="61.59991455078125" text="Room ID" />
-                <TableColumn fx:id="colCategoryRS" prefWidth="83.3333740234375" text="Category" />
-                <TableColumn fx:id="colStatusRS" prefWidth="91.33331298828125" text="Status" />
-            <TableColumn fx:id="colBedsRS" prefWidth="75.0" text="No of Beds" />
+                <TableColumn fx:id="colCategoryRS" prefWidth="61.3333740234375" text="Category" />
+                <TableColumn fx:id="colStatusRS" prefWidth="114.6666259765625" text="Status" />
+            <TableColumn fx:id="colBedsRS" prefWidth="74.66668701171875" text="No of Beds" />
             </columns>
         </TableView>
       <Label layoutX="661.0" layoutY="62.0" text="Room Status">
@@ -70,7 +70,7 @@
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="txtCusId" editable="false" layoutX="23.0" layoutY="96.0" onKeyPressed="#txtCustomerIdKeyPress" prefHeight="25.0" prefWidth="165.0" promptText="Select Customer From Table">
+      <TextField fx:id="txtCusId" editable="false" layoutX="23.0" layoutY="96.0" onAction="#txtCustomerIdAction" onKeyPressed="#txtCustomerIdKeyPress" onKeyTyped="#txtCustomerIdKeyTyped" prefHeight="25.0" prefWidth="165.0" promptText="Select Customer From Table">
          <tooltip>
             <Tooltip text="Please Select your Registerd Customer From the Table" />
          </tooltip>
@@ -107,12 +107,22 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <Label fx:id="lblCustomerName" layoutX="207.0" layoutY="100.0" prefHeight="17.0" prefWidth="89.0" text="Cus Name">
+      <Label fx:id="lblCustomerName" layoutX="207.0" layoutY="100.0" prefHeight="19.0" prefWidth="126.0">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="lblCustomerNic" layoutX="325.0" layoutY="99.0" prefHeight="17.0" prefWidth="89.0" text="Nic">
+      <Label fx:id="lblCustomerNic" layoutX="352.0" layoutY="100.0" prefHeight="19.0" prefWidth="174.0">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblRoomCategory" layoutX="207.0" layoutY="131.0" prefHeight="19.0" prefWidth="126.0">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblRoomCost" layoutX="352.0" layoutY="131.0" prefHeight="19.0" prefWidth="174.0">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>

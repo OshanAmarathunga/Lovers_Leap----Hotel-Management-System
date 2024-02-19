@@ -84,4 +84,10 @@ public class CustomerServiceImpl implements CustomerService {
         }
         return null;
     }
+
+    @Override
+    public CustomerDto getCustomerById(int id) throws Exception {
+        CustomerEntity ety=customerDao.get(id);
+        return new CustomerDto(ety.getCus_Id(),ety.getFirst_Name(),ety.getLast_Name(),ety.getAddress(),ety.getCountry(),ety.getGender(),ety.getEmail(),ety.getContact_no(),ety.getNIC_no());
+    }
 }
