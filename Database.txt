@@ -1,6 +1,6 @@
 CREATE TABLE HotelBranchDetail(
 Hotel_ID int AUTO_INCREMENT,
-NAME VARCHAR(30) not null,
+NAME VARCHAR(30) not null UNIQUE,
 ADDRESS VARCHAR(40),
 District VARCHAR(20) not null,
 Contact_No VARCHAR (15) NOT NULL,
@@ -41,7 +41,7 @@ INSERT INTO Customer VALUES(1000,'Nuwan','Amila','41/A Padukka','Sri Lanka','mal
 --------------------------------------------------------------------------------------------------------------------------
 CREATE TABLE Room_Category(
 CatID int AUTO_INCREMENT,
-Room_Type_Name VARCHAR(15) NOT NULL,
+Room_Type_Name VARCHAR(15) NOT NULL UNIQUE,
 Cost_Per_Night double not null,
 Discription VARCHAR(200),
 CONSTRAINT PRIMARY KEY (CatID));
@@ -58,7 +58,7 @@ CONSTRAINT PRIMARY KEY (Room_Id),
 CONSTRAINT FOREIGN KEY(Cat_ID) REFERENCES Room_Category (CatID),
 CONSTRAINT FOREIGN KEY(Hotel_ID) REFERENCES HotelBranchDetail (Hotel_ID));
 
-INSERT INTO Room VALUES('R01',2,1,3,'Available');
+INSERT INTO Room VALUES('R01',1,1,3,'Available');
 -------------------------------------------------------------------------------------------------------------------------------------
 
 
