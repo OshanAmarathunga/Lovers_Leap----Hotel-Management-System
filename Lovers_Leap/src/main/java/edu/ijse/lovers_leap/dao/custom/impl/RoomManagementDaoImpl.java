@@ -24,6 +24,14 @@ public class RoomManagementDaoImpl implements RoomManagementDao {
 
     @Override
     public RoomManagementEntity getId(String s) throws Exception {
+        ResultSet rst= CrudUtil.executeQuery("SELECT * FROM room WHERE Room_Id=? ",s);
+        while (rst.next()){
+            return new RoomManagementEntity(rst.getString("Room_Id"),
+                    rst.getInt("Cat_ID"),
+                    rst.getInt("Hotel_ID"),
+                    rst.getInt("No_of_Beds"),
+                    rst.getString("Status"));
+        }
         return null;
     }
 

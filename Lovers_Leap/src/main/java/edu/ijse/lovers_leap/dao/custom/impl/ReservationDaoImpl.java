@@ -22,6 +22,18 @@ public class ReservationDaoImpl implements ReservationDao {
 
     @Override
     public ReservationEntity get(Integer id) throws Exception {
+        ResultSet rst=CrudUtil.executeQuery("SELECT * FROM reservation WHERE Res_Id=?",id);
+        while (rst.next()){
+            return new ReservationEntity(rst.getInt("Res_Id"),
+                    rst.getInt("Cus_ID"),
+                    rst.getString("In_Date"),
+                    rst.getString("out_Date"),
+                    rst.getString("Booking_Status"),
+                    rst.getString("Room_no"),
+                    rst.getInt("Guest"),
+                    rst.getString("BookedDate"),
+                    rst.getString("BookedTime"));
+        }
         return null;
     }
 

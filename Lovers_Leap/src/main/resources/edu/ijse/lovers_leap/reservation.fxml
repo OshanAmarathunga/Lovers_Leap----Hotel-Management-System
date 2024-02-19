@@ -29,19 +29,19 @@
                 </Label>
             </children>
         </AnchorPane>
-        <TableView fx:id="tblCustomerStatus" layoutX="925.0" layoutY="84.0" onMouseClicked="#tblCustomerStatusMouseClicked" prefHeight="435.0" prefWidth="268.0">
+        <TableView fx:id="tblCustomerStatus" layoutX="958.0" layoutY="84.0" onMouseClicked="#tblCustomerStatusMouseClicked" prefHeight="435.0" prefWidth="235.0">
             <columns>
-                <TableColumn fx:id="colCustomerIdCS" prefWidth="48.0" text="Cust ID" />
-                <TableColumn fx:id="colNameCS" prefWidth="116.7999267578125" text="Name" />
-                <TableColumn fx:id="colContatcNoCS" prefWidth="100.7999267578125" text="Contact No" />
+                <TableColumn fx:id="colCustomerIdCS" prefWidth="47.3333740234375" text="Cust ID" />
+                <TableColumn fx:id="colNameCS" prefWidth="103.33331298828125" text="Name" />
+                <TableColumn fx:id="colContatcNoCS" prefWidth="83.3333740234375" text="Contact No" />
             </columns>
         </TableView>
-        <TableView fx:id="tblRoomStatus" layoutX="633.0" layoutY="84.0" onMouseClicked="#tblRoomStatusMouseClicked" prefHeight="435.0" prefWidth="289.0">
+        <TableView fx:id="tblRoomStatus" layoutX="633.0" layoutY="84.0" onMouseClicked="#tblRoomStatusMouseClicked" prefHeight="435.0" prefWidth="320.0">
             <columns>
-                <TableColumn fx:id="colRoomIdRS" prefWidth="91.33331298828125" text="Room ID" />
-                <TableColumn fx:id="colCategoryRS" prefWidth="64.66668701171875" text="Category" />
-                <TableColumn fx:id="colStatusRS" prefWidth="64.66668701171875" text="Status" />
-            <TableColumn fx:id="colBedsRS" prefWidth="65.33331298828125" text="Beds" />
+                <TableColumn fx:id="colRoomIdRS" prefWidth="61.33331298828125" text="Room ID" />
+                <TableColumn fx:id="colCategoryRS" prefWidth="76.6666259765625" text="Category" />
+                <TableColumn fx:id="colStatusRS" prefWidth="122.66668701171875" text="Status" />
+            <TableColumn fx:id="colBedsRS" prefWidth="55.99993896484375" text="Beds" />
             </columns>
         </TableView>
       <Label layoutX="714.0" layoutY="57.0" text="Room Status">
@@ -96,7 +96,7 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="btnCancell" layoutX="457.0" layoutY="271.0" mnemonicParsing="false" onAction="#btnCancellAction" prefHeight="27.0" prefWidth="115.0" text="Cancel Booking">
+      <Button fx:id="btnCancell" layoutX="506.0" layoutY="270.0" mnemonicParsing="false" onAction="#btnCancellAction" prefHeight="27.0" prefWidth="115.0" text="Cancel Booking">
          <font>
             <Font name="System Bold Italic" size="13.0" />
          </font>

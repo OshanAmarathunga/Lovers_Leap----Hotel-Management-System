@@ -392,6 +392,7 @@ public class ReservationControllerFxml implements Initializable {
         colCategoryRS.setCellValueFactory(c->new SimpleIntegerProperty(c.getValue().getCatId()).asObject());
         colStatusRS.setCellValueFactory(c->new SimpleStringProperty(c.getValue().getStatus()));
         colBedsRS.setCellValueFactory(c->new SimpleIntegerProperty(c.getValue().getNoOfBeds()).asObject());
+        
         tblRoomStatus.setItems(odtos);
 
         colCustomerIdCS.setCellValueFactory(c->new SimpleIntegerProperty(c.getValue().getCustomerId()).asObject());

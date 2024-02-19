@@ -2,56 +2,146 @@ package edu.ijse.lovers_leap.service.custom.impl;
 
 import edu.ijse.lovers_leap.dao.DaoFactory;
 import edu.ijse.lovers_leap.dao.custom.ReservationDao;
+import edu.ijse.lovers_leap.dao.custom.RoomManagementDao;
+import edu.ijse.lovers_leap.db.DBConnection;
 import edu.ijse.lovers_leap.dto.ReservationDto;
 import edu.ijse.lovers_leap.entity.ReservationEntity;
+import edu.ijse.lovers_leap.entity.RoomManagementEntity;
 import edu.ijse.lovers_leap.service.custom.ReservationService;
+import edu.ijse.lovers_leap.service.custom.RoomManagementService;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 
 public class ReservationServiceImpl implements ReservationService {
-    private ReservationDao reservationDao= (ReservationDao) DaoFactory.getInstance().getDao(DaoFactory.DaoTypes.RESERVATION);
+    private ReservationDao reservationDao = (ReservationDao) DaoFactory.getInstance().getDao(DaoFactory.DaoTypes.RESERVATION);
+    private RoomManagementDao roomManagementDao = (RoomManagementDao) DaoFactory.getInstance().getDao(DaoFactory.DaoTypes.ROOMMANAGEMENT);
 
     @Override
     public String saveReservation(ReservationDto dto) throws Exception {
+        Connection connection = DBConnection.getInstance().getConnection();
+        try {
+            connection.setAutoCommit(false);
+            if (reservationDao.add(new ReservationEntity(dto.getCustomerId(), dto.getInDate(), dto.getOutDate(), dto.getBookingStatus(), dto.getRoomNo(), dto.getGuests(), dto.getBookedDate(), dto.getBookedTime()))) {
 
-        if(reservationDao.add(new ReservationEntity(dto.getCustomerId(),
-                dto.getInDate(),
-                dto.getOutDate(),
-                dto.getBookingStatus(),
-                dto.getRoomNo(),
-                dto.getGuests(),
-                dto.getBookedDate(),
-                dto.getBookedTime()))){
-            return "Successfully Booked the room!";
-        }else {
-            return "Fail to Book!";
+
+                RoomManagementEntity roomManagementEntity = roomManagementDao.getId(dto.getRoomNo());
+                if (roomManagementEntity != null) {
+                    roomManagementEntity.setStatus("Booked");
+                    if (roomManagementDao.update(roomManagementEntity)) {
+                        connection.commit();
+                        return "Successfully Saved the Reservation for Room no : " + dto.getRoomNo();
+                    } else {
+                        connection.rollback();
+                        return "Fail to update the room Status";
+                    }
+                } else {
+                    connection.rollback();
+                    return "Fail to get room entity!";
+                }
+
+
+            } else {
+                connection.rollback();
+                return "Fail to Book!";
+            }
+
+        } catch (Exception e) {
+            connection.rollback();
+            e.printStackTrace();
+            throw e;
+        } finally {
+            connection.setAutoCommit(true);
         }
+
+
     }
 
     @Override
     public String updateReservation(ReservationDto dto) throws Exception {
-        if(reservationDao.update(new ReservationEntity(dto.getReservationId(),dto.getCustomerId(),dto.getInDate(),dto.getOutDate(),dto.getBookingStatus(),dto.getRoomNo(),dto.getGuests(),dto.getBookedDate(),dto.getBookedTime()))){
-            return "Successfully updated the Reservation!";
-        }else {
-            return "Fail to update!";
+        Connection connection = DBConnection.getInstance().getConnection();
+        try {
+            connection.setAutoCommit(false);
+            String oldRoomNo = reservationDao.get(dto.getReservationId()).getRoomNo();
+            RoomManagementEntity roomManagementEntity = roomManagementDao.getId(oldRoomNo);
+            if (roomManagementEntity != null) {
+                roomManagementEntity.setStatus("Available");
+                if (roomManagementDao.update(roomManagementEntity)) {
+                    if (reservationDao.update(new ReservationEntity(dto.getReservationId(), dto.getCustomerId(), dto.getInDate(), dto.getOutDate(), dto.getBookingStatus(), dto.getRoomNo(), dto.getGuests(), dto.getBookedDate(), dto.getBookedTime()))) {
+                        RoomManagementEntity roomManagementEntity2 = roomManagementDao.getId(dto.getRoomNo());
+                        roomManagementEntity2.setStatus("Booked");
+                        if (roomManagementDao.update(roomManagementEntity2)) {
+                            connection.commit();
+                            return "Successfully Updated the Reservation :" + dto.getReservationId();
+                        } else {
+                            connection.rollback();
+                            return "Fail to update room!";
+                        }
+
+
+                    } else {
+                        connection.rollback();
+                        return "Fail to update!";
+                    }
+                } else {
+                    connection.rollback();
+                    return "Fail to update the old room";
+                }
+            } else {
+                connection.rollback();
+                return "Fail to get the Reservation Entity";
+            }
+
+        } catch (Exception e) {
+            connection.rollback();
+            e.printStackTrace();
+            throw e;
+        } finally {
+            connection.setAutoCommit(true);
         }
     }
 
     @Override
     public String deleteReservation(int id) throws Exception {
-        if(reservationDao.delete(id)){
-            return "Successfully deleted the Reservation !";
-        }else {
-            return "Fail to delete!";
+        Connection connection=DBConnection.getInstance().getConnection();
+        try {
+            connection.setAutoCommit(false);
+            String deletingRoomNo=reservationDao.get(id).getRoomNo();
+            RoomManagementEntity roomManagementEntity=roomManagementDao.getId(deletingRoomNo);
+            if(roomManagementEntity!=null){
+                roomManagementEntity.setStatus("Available");
+                if(roomManagementDao.update(roomManagementEntity)){
+                    if (reservationDao.delete(id)) {
+                        connection.commit();
+                        return "Successfully deleted the Reservation no : , "+ id;
+                    } else {
+                        connection.rollback();
+                        return "Fail to delete!";
+                    }
+                }else {
+                    connection.rollback();
+                    return "Fail to update room management entity!";
+                }
+            }else {
+                connection.rollback();
+                return "Fail to get room no";
+            }
+        }catch (Exception e){
+            connection.rollback();
+            e.printStackTrace();
+            throw e;
+
+        }finally {
+            connection.setAutoCommit(true);
         }
     }
 
     @Override
     public ArrayList<ReservationDto> getAll() throws Exception {
-        ArrayList<ReservationDto> dlist=new ArrayList<>();
-        ArrayList<ReservationEntity> ety=reservationDao.getAll();
-        for(ReservationEntity entity:ety){
-            dlist.add(new ReservationDto(entity.getReservationId(),entity.getCustomerId(),entity.getInDate(),entity.getOutDate(),entity.getBookingStatus(),entity.getRoomNo(),entity.getNoOfGuests(),entity.getBookedDate(),entity.getBookedTime()));
+        ArrayList<ReservationDto> dlist = new ArrayList<>();
+        ArrayList<ReservationEntity> ety = reservationDao.getAll();
+        for (ReservationEntity entity : ety) {
+            dlist.add(new ReservationDto(entity.getReservationId(), entity.getCustomerId(), entity.getInDate(), entity.getOutDate(), entity.getBookingStatus(), entity.getRoomNo(), entity.getNoOfGuests(), entity.getBookedDate(), entity.getBookedTime()));
         }
         return dlist;
     }
