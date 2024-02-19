@@ -28,12 +28,14 @@ public class DaoFactory {
                 return new RoomCategoryDaoImpl();
             case ROOMMANAGEMENT:
                 return new RoomManagementDaoImpl();
+            case RESERVATION:
+                return new ReservationDaoImpl();
             default:
                 return null;
         }
     }
 
     public enum DaoTypes{
-        RECEPTIONIST,CUSTOMER,HOTELDETAIL,ROOMCATEGORY,ROOMMANAGEMENT;
+        RECEPTIONIST,CUSTOMER,HOTELDETAIL,ROOMCATEGORY,ROOMMANAGEMENT,RESERVATION;
     }
 }

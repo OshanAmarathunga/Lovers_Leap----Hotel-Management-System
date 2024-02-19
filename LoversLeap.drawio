@@ -1,4 +1,4 @@
-<mxfile host="Electron" modified="2024-02-18T16:57:24.437Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="t3ssL8OeV-cm0PUtWlCt" version="23.1.5" type="device">
+<mxfile host="Electron" modified="2024-02-19T16:54:02.996Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="YHV2Z0atDDGsFSOR0IPw" version="23.1.5" type="device">
   <diagram name="Page-1" id="SreyxP_jM1yPaFWcH0MW">
     <mxGraphModel dx="780" dy="496" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -101,7 +101,7 @@
           <mxGeometry y="120" width="161" height="30" as="geometry" />
         </mxCell>
         <mxCell id="x8Vk9N2oheQrWazXi7zm-42" value="Reservations&amp;nbsp;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="469" y="16" width="181" height="270" as="geometry">
+          <mxGeometry x="469" y="16" width="181" height="330" as="geometry">
             <mxRectangle x="255" y="102" width="63" height="30" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
@@ -128,6 +128,12 @@
         </mxCell>
         <mxCell id="uBPMJsVDM2TWTW8LKVR5-1" value="No of Guests&amp;nbsp;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="x8Vk9N2oheQrWazXi7zm-42" vertex="1">
           <mxGeometry y="240" width="181" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="d_kUj0TDhVPxx9OSdwE7-1" value="Booked Date" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="x8Vk9N2oheQrWazXi7zm-42">
+          <mxGeometry y="270" width="181" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="d_kUj0TDhVPxx9OSdwE7-2" value="Booked Time" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="x8Vk9N2oheQrWazXi7zm-42">
+          <mxGeometry y="300" width="181" height="30" as="geometry" />
         </mxCell>
         <mxCell id="x8Vk9N2oheQrWazXi7zm-50" value="RoomCategories&amp;nbsp;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="225" y="382" width="166" height="150" as="geometry">

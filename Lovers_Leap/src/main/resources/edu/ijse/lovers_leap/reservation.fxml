@@ -13,9 +13,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="536.0" prefWidth="1154.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ijse.lovers_leap.fxmlController.ReservationControllerFxml">
+<AnchorPane prefHeight="536.0" prefWidth="1207.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ijse.lovers_leap.fxmlController.ReservationControllerFxml">
     <children>
-        <AnchorPane prefHeight="54.0" prefWidth="1154.0" style="-fx-background-color: #7CC8F5;">
+        <AnchorPane prefHeight="54.0" prefWidth="1207.0" style="-fx-background-color: #7CC8F5;">
             <children>
                 <ImageView fitHeight="42.0" fitWidth="38.0" layoutX="457.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -29,40 +29,42 @@
                 </Label>
             </children>
         </AnchorPane>
-        <TableView fx:id="tblCustomerStatus" layoutX="872.0" layoutY="89.0" onMouseClicked="#tblCustomerStatusMouseClicked" prefHeight="427.0" prefWidth="268.0">
+        <TableView fx:id="tblCustomerStatus" layoutX="925.0" layoutY="84.0" onMouseClicked="#tblCustomerStatusMouseClicked" prefHeight="435.0" prefWidth="268.0">
             <columns>
                 <TableColumn fx:id="colCustomerIdCS" prefWidth="48.0" text="Cust ID" />
                 <TableColumn fx:id="colNameCS" prefWidth="116.7999267578125" text="Name" />
                 <TableColumn fx:id="colContatcNoCS" prefWidth="100.7999267578125" text="Contact No" />
             </columns>
         </TableView>
-        <TableView fx:id="tblRoomStatus" layoutX="550.0" layoutY="89.0" onMouseClicked="#tblRoomStatusMouseClicked" prefHeight="427.0" prefWidth="310.0">
+        <TableView fx:id="tblRoomStatus" layoutX="633.0" layoutY="84.0" onMouseClicked="#tblRoomStatusMouseClicked" prefHeight="435.0" prefWidth="289.0">
             <columns>
-                <TableColumn fx:id="colRoomIdRS" prefWidth="61.59991455078125" text="Room ID" />
-                <TableColumn fx:id="colCategoryRS" prefWidth="61.3333740234375" text="Category" />
-                <TableColumn fx:id="colStatusRS" prefWidth="114.6666259765625" text="Status" />
-            <TableColumn fx:id="colBedsRS" prefWidth="74.66668701171875" text="No of Beds" />
+                <TableColumn fx:id="colRoomIdRS" prefWidth="91.33331298828125" text="Room ID" />
+                <TableColumn fx:id="colCategoryRS" prefWidth="64.66668701171875" text="Category" />
+                <TableColumn fx:id="colStatusRS" prefWidth="64.66668701171875" text="Status" />
+            <TableColumn fx:id="colBedsRS" prefWidth="65.33331298828125" text="Beds" />
             </columns>
         </TableView>
-      <Label layoutX="661.0" layoutY="62.0" text="Room Status">
+      <Label layoutX="714.0" layoutY="57.0" text="Room Status">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="948.0" layoutY="62.0" text="Customer Status">
+      <Label layoutX="1001.0" layoutY="57.0" text="Customer Status">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <TableView fx:id="tblReservation" layoutX="14.0" layoutY="317.0" onMouseClicked="#tblReservationMouseClicked" prefHeight="200.0" prefWidth="529.0">
+      <TableView fx:id="tblReservation" layoutX="14.0" layoutY="317.0" onMouseClicked="#tblReservationMouseClicked" prefHeight="200.0" prefWidth="615.0">
         <columns>
-          <TableColumn fx:id="colResId" prefWidth="56.666659355163574" text="Res_ ID" />
-          <TableColumn fx:id="colCusId" prefWidth="60.666648864746094" text="Cus_ ID" />
-            <TableColumn fx:id="colInDate" prefWidth="92.00003051757812" text="In Date" />
-            <TableColumn fx:id="colOutDate" prefWidth="86.66664123535156" text="Out Date" />
-            <TableColumn fx:id="colBookingStatus" prefWidth="104.66668701171875" text="Booking_ Status" />
-            <TableColumn fx:id="colRoomNo" prefWidth="62.0" text="Room No" />
-            <TableColumn fx:id="colGuests" prefWidth="77.33328247070312" text="Guests" />
+          <TableColumn fx:id="colResId" prefWidth="45.99996852874756" text="Res_ ID" />
+          <TableColumn fx:id="colCusId" prefWidth="51.33334732055664" text="Cus_ ID" />
+            <TableColumn fx:id="colInDate" prefWidth="66.66667938232422" text="In Date" />
+            <TableColumn fx:id="colOutDate" prefWidth="73.33328247070312" text="Out Date" />
+            <TableColumn fx:id="colBookingStatus" prefWidth="97.99995422363281" text="Booking_ Status" />
+            <TableColumn fx:id="colRoomNo" prefWidth="60.0" text="Room No" />
+            <TableColumn fx:id="colGuests" prefWidth="54.66668701171875" text="Guests" />
+            <TableColumn fx:id="colBookedDate" prefWidth="77.99996948242188" text="Booked Date" />
+            <TableColumn fx:id="colBookedTime" prefWidth="85.0" text="Booked Time" />
         </columns>
       </TableView>
       <Label layoutX="14.0" layoutY="64.0" text="Make your reservation....">
@@ -83,7 +85,7 @@
       <DatePicker fx:id="dateIN" layoutX="23.0" layoutY="162.0" onKeyPressed="#dateINKeyPress" prefHeight="25.0" prefWidth="165.0" promptText="Check In Date" />
       <DatePicker fx:id="dateOut" layoutX="23.0" layoutY="197.0" onKeyPressed="#dateOutKeyPress" prefHeight="25.0" prefWidth="165.0" promptText="Check Out Date" />
       <ComboBox fx:id="cmbBookingStatus" layoutX="23.0" layoutY="236.0" onKeyPressed="#cmbBookingStatusKeyPress" prefHeight="25.0" prefWidth="165.0" promptText="Booking Status" />
-      <TextField fx:id="txtGuests" editable="false" layoutX="23.0" layoutY="271.0" onKeyPressed="#txtGuestsKeyPress" prefHeight="25.0" prefWidth="165.0" promptText="No of Guests" />
+      <TextField fx:id="txtGuests" layoutX="23.0" layoutY="271.0" onKeyPressed="#txtGuestsKeyPress" prefHeight="25.0" prefWidth="165.0" promptText="No of Guests" />
       <Button fx:id="btnAdd" layoutX="207.0" layoutY="271.0" mnemonicParsing="false" onAction="#btnAddAction" prefHeight="25.0" prefWidth="78.0" text="Add">
          <font>
             <Font name="System Bold" size="13.0" />
@@ -94,7 +96,7 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="btnCancell" layoutX="422.0" layoutY="271.0" mnemonicParsing="false" onAction="#btnCancellAction" prefHeight="27.0" prefWidth="115.0" text="Cancel Booking">
+      <Button fx:id="btnCancell" layoutX="457.0" layoutY="271.0" mnemonicParsing="false" onAction="#btnCancellAction" prefHeight="27.0" prefWidth="115.0" text="Cancel Booking">
          <font>
             <Font name="System Bold Italic" size="13.0" />
          </font>

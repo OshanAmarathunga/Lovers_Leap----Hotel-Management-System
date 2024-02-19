@@ -60,6 +60,19 @@ CONSTRAINT FOREIGN KEY(Hotel_ID) REFERENCES HotelBranchDetail (Hotel_ID));
 
 INSERT INTO Room VALUES('R01',1,1,3,'Available');
 -------------------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE Reservation(
+Res_Id int AUTO_INCREMENT,
+Cus_ID int NOT NULL,
+In_Date date Not Null,
+out_Date date Not null,
+Booking_Status varchar(20) Not Null,
+Room_no Varchar(15) not Null,
+Guest int Not Null,
+BookedDate date not null,
+BookedTime time not null,
+CONSTRAINT PRIMARY KEY (Res_Id),
+CONSTRAINT FOREIGN KEY(Cus_ID) REFERENCES Customer (Cus_Id),
+CONSTRAINT FOREIGN KEY(Room_no) REFERENCES Room (Room_Id));
 
 
 
