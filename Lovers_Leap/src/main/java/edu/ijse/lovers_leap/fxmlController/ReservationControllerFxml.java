@@ -151,21 +151,46 @@ public class ReservationControllerFxml implements Initializable {
     @FXML
     void btnAddAction(ActionEvent event) {
         if(!txtCusId.getText().isEmpty() | !txtRoomId.getText().isEmpty() | dateOut.getValue()!=null | dateIN.getValue()!=null | !txtGuests.getText().isEmpty() ){
-            try {
-                String rst=reservationController.saveReservation(new ReservationDto(Integer.parseInt(txtCusId.getText()),dateIN.getValue().toString(),dateOut.getValue().toString(),cmbBookingStatus.getValue(),txtRoomId.getText(),Integer.parseInt(txtGuests.getText()),getCurrentDate(),getCurrentTime()));
-                clear();
-                loadTables();
-                Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
-                alert2.setContentText(rst);
-                Optional<ButtonType> result2 = alert2.showAndWait();
-            } catch (Exception e) {
+            String dateInSelection=dateIN.getValue().toString();
+            String currentDate=getCurrentDate();
+
+            int comparison=dateInSelection.compareTo(currentDate);
+
+            if(comparison>=0){
+                String dateOutSelection=dateOut.getValue().toString();
+                int comparisonOfInandOut=dateOutSelection.compareTo(dateInSelection);
+                if(comparisonOfInandOut>=0){
+                    try {
+                        String rst=reservationController.saveReservation(new ReservationDto(Integer.parseInt(txtCusId.getText()),dateIN.getValue().toString(),dateOut.getValue().toString(),cmbBookingStatus.getValue(),txtRoomId.getText(),Integer.parseInt(txtGuests.getText()),getCurrentDate(),getCurrentTime()));
+                        clear();
+                        loadTables();
+                        Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
+                        alert2.setContentText(rst);
+                        Optional<ButtonType> result2 = alert2.showAndWait();
+                    } catch (Exception e) {
+                        Alert alert2 = new Alert(Alert.AlertType.ERROR);
+                        alert2.setContentText(e.getMessage());
+                        Optional<ButtonType> result2 = alert2.showAndWait();
+
+                    }
+
+                }else {
+                    Alert alert2 = new Alert(Alert.AlertType.ERROR);
+                    alert2.setTitle("Check in date and check out date error !");
+                    alert2.setContentText("Please select correct check in date and check out Date !");
+                    Optional<ButtonType> result2 = alert2.showAndWait();
+                }
+            }else {
                 Alert alert2 = new Alert(Alert.AlertType.ERROR);
-                alert2.setContentText(e.getMessage());
+                alert2.setTitle("Check in date Error !");
+                alert2.setContentText("Please select correct check in date! afte the "+getCurrentDate());
                 Optional<ButtonType> result2 = alert2.showAndWait();
 
             }
+
         }else {
             Alert alert2 = new Alert(Alert.AlertType.ERROR);
+            alert2.setTitle("Error !");
             alert2.setContentText("Please Fill all the data !");
             Optional<ButtonType> result2 = alert2.showAndWait();
         }
@@ -209,16 +234,39 @@ public class ReservationControllerFxml implements Initializable {
     @FXML
     void btnUpdateAction(ActionEvent event) {
         if(!txtCusId.getText().isEmpty() | !txtRoomId.getText().isEmpty() | dateOut.getValue()!=null | dateIN.getValue()!=null | !txtGuests.getText().isEmpty() ){
-            try {
-                String rst=reservationController.updateReservation(new ReservationDto(tblReservation.getSelectionModel().getSelectedItem().getReservationId(),Integer.parseInt(txtCusId.getText()),dateIN.getValue().toString(),dateOut.getValue().toString(),cmbBookingStatus.getValue(),txtRoomId.getText(),Integer.parseInt(txtGuests.getText()),getCurrentDate(),getCurrentTime()));
-                clear();
-                loadTables();
-                Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
-                alert2.setContentText(rst);
-                Optional<ButtonType> result2 = alert2.showAndWait();
-            } catch (Exception e) {
+            String dateInSelection=dateIN.getValue().toString();
+            String currentDate=getCurrentDate();
+
+            int comparison=dateInSelection.compareTo(currentDate);
+
+            if(comparison>=0){
+                String dateOutSelection=dateOut.getValue().toString();
+                int comparisonOfInandOut=dateOutSelection.compareTo(dateInSelection);
+                if(comparisonOfInandOut>=0){
+                    try {
+                        String rst=reservationController.updateReservation(new ReservationDto(tblReservation.getSelectionModel().getSelectedItem().getReservationId(),Integer.parseInt(txtCusId.getText()),dateIN.getValue().toString(),dateOut.getValue().toString(),cmbBookingStatus.getValue(),txtRoomId.getText(),Integer.parseInt(txtGuests.getText()),getCurrentDate(),getCurrentTime()));
+                        clear();
+                        loadTables();
+                        Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
+                        alert2.setContentText(rst);
+                        Optional<ButtonType> result2 = alert2.showAndWait();
+                    } catch (Exception e) {
+                        Alert alert2 = new Alert(Alert.AlertType.ERROR);
+                        alert2.setContentText(e.getMessage());
+                        Optional<ButtonType> result2 = alert2.showAndWait();
+
+                    }
+
+                }else {
+                    Alert alert2 = new Alert(Alert.AlertType.ERROR);
+                    alert2.setTitle("Check in date and check out date error !");
+                    alert2.setContentText("Please select correct check in date and check out Date !");
+                    Optional<ButtonType> result2 = alert2.showAndWait();
+                }
+            }else {
                 Alert alert2 = new Alert(Alert.AlertType.ERROR);
-                alert2.setContentText(e.getMessage());
+                alert2.setTitle("Check in date Error !");
+                alert2.setContentText("Please select correct check in date! afte the "+getCurrentDate());
                 Optional<ButtonType> result2 = alert2.showAndWait();
 
             }
@@ -366,8 +414,9 @@ public class ReservationControllerFxml implements Initializable {
         roomCategoryController=new RoomCategoryController();
         reservationController=new ReservationController();
         ObservableList<String> status=FXCollections.observableArrayList();
-        status.add("Payment Pending");
-        status.add("Confirmation Pending");
+        status.add("Full Board");
+        status.add("Half Board");
+        status.add("Bed and Breakfast");
         cmbBookingStatus.setItems(status);
 
         loadTables();
@@ -392,7 +441,7 @@ public class ReservationControllerFxml implements Initializable {
         colCategoryRS.setCellValueFactory(c->new SimpleIntegerProperty(c.getValue().getCatId()).asObject());
         colStatusRS.setCellValueFactory(c->new SimpleStringProperty(c.getValue().getStatus()));
         colBedsRS.setCellValueFactory(c->new SimpleIntegerProperty(c.getValue().getNoOfBeds()).asObject());
-        
+
         tblRoomStatus.setItems(odtos);
 
         colCustomerIdCS.setCellValueFactory(c->new SimpleIntegerProperty(c.getValue().getCustomerId()).asObject());
@@ -420,6 +469,10 @@ public class ReservationControllerFxml implements Initializable {
         dateOut.setValue(LocalDate.now());
         cmbBookingStatus.setPromptText("Select Booking Status");
         txtGuests.setText("");
+        lblRoomCost.setText("");
+        lblRoomCategory.setText("");
+        lblCustomerName.setText("");
+        lblCustomerNic.setText("");
 
     }
 }
