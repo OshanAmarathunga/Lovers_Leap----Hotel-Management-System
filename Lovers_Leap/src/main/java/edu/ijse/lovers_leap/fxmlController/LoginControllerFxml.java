@@ -10,6 +10,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.util.Optional;
 
@@ -49,15 +50,8 @@ public class LoginControllerFxml {
                         stage.show();
                         stage.centerOnScreen();
                         stage.setResizable(false);
+                        stage.initStyle(StageStyle.UTILITY);
 
-//                        try {
-//                            String name=receptionistController.getReceptionist(Integer.parseInt(txtUserId.getText())).getFirstName();
-//                            System.out.println(name);
-//                            controllerFxml=new HomeControllerFxml(name);
-//                            controllerFxml.setLblShowReceiptionistName(name);
-//                        } catch (Exception e) {
-//                            throw new RuntimeException(e);
-//                        }
                     } catch (Exception e) {
                         System.out.println(e);
                     }
@@ -84,6 +78,8 @@ public class LoginControllerFxml {
             stage.setScene(scene);
             stage.show();
             stage.centerOnScreen();
+            stage.initStyle(StageStyle.UTILITY);
+            stage.setResizable(false);
 
         } catch (Exception e) {
             System.out.println(e);

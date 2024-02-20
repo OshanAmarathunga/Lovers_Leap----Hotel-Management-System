@@ -17,7 +17,7 @@
             <children>
                 <ImageView fitHeight="45.0" fitWidth="39.0" layoutX="427.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@roomManagement.png" />
+                        <Image url="@images/roomManagement.png" />
                     </image>
                 </ImageView>
                 <Label layoutX="474.0" layoutY="16.0" text="Room Management">

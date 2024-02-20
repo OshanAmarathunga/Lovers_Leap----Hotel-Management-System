@@ -10,4 +10,7 @@ public interface ReservationService extends SuperService {
     String updateReservation(ReservationDto dto) throws Exception;
     String deleteReservation(int id) throws Exception;
     ArrayList<ReservationDto> getAll() throws Exception;
+    ReservationDto getReservation(int id) throws Exception;
+
+    String UpdateReservationStatus(int id,String RoomNo) throws Exception;
 }

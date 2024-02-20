@@ -22,7 +22,9 @@ import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
@@ -36,9 +38,7 @@ public class HomeFxmlController implements Initializable {
     private ReceptionistController receptionistController;
     private LoginControllerFxml loginControllerFxml;
     private HotelDetailController hotelDetailController;
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
+
 
 
     @FXML
@@ -190,14 +190,14 @@ public class HomeFxmlController implements Initializable {
     @FXML
     void btnHotelDetailAction(ActionEvent event) {
         try {
-            root = FXMLLoader.load(getClass().getResource("/edu/ijse/lovers_leap/HotelDetails.fxml"));
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-            stage.centerOnScreen();
-            stage.setResizable(false);
-            stage.centerOnScreen();
+            Parent root1 = FXMLLoader.load(getClass().getResource("/edu/ijse/lovers_leap/HotelDetails.fxml"));
+            Stage stage1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene1 = new Scene(root1);
+            stage1.setScene(scene1);
+            stage1.show();
+            stage1.centerOnScreen();
+            stage1.setResizable(false);
+            stage1.centerOnScreen();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -206,11 +206,32 @@ public class HomeFxmlController implements Initializable {
     @FXML
     void btnReceiptionistAction(ActionEvent event) {
         try {
-            root = FXMLLoader.load(getClass().getResource("/edu/ijse/lovers_leap/mainReceptionistRegister.fxml"));
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
+            Parent root2 = FXMLLoader.load(getClass().getResource("/edu/ijse/lovers_leap/mainReceptionistRegister.fxml"));
+            Stage stage2 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene2 = new Scene(root2);
+            stage2.setScene(scene2);
+            stage2.centerOnScreen();
+            stage2.initStyle(StageStyle.UTILITY);
+            stage2.setResizable(false);
+            stage2.show();
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    @FXML
+    void btnReservationAction(ActionEvent event) {
+
+
+        try {
+            Parent root3 = FXMLLoader.load(getClass().getResource("/edu/ijse/lovers_leap/reservation.fxml"));
+            Stage stage3 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene3 = new Scene(root3);
+            stage3.setScene(scene3);
+            stage3.centerOnScreen();
+            stage3.initStyle(StageStyle.UTILITY);
+            stage3.setResizable(false);
+            stage3.show();
 
         } catch (Exception e) {
             System.out.println(e);
@@ -219,32 +240,36 @@ public class HomeFxmlController implements Initializable {
 
     @FXML
     void btnRoomCategoryAction(ActionEvent event) {
+        Parent root4;
         try {
-            root = FXMLLoader.load(getClass().getResource("/edu/ijse/lovers_leap/RoomCategory.fxml"));
+            root4 = FXMLLoader.load(getClass().getResource("/edu/ijse/lovers_leap/RoomCategory.fxml"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-        stage.centerOnScreen();
-        stage.setResizable(false);
+        Stage stage4 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene4 = new Scene(root4);
+        stage4.setScene(scene4);
+        stage4.centerOnScreen();
+        stage4.initStyle(StageStyle.UTILITY);
+        stage4.setResizable(false);
+        stage4.show();
 
     }
     @FXML
     void btnRoomManagementAction(ActionEvent event) {
+        Parent root5;
         try {
-            root = FXMLLoader.load(getClass().getResource("/edu/ijse/lovers_leap/RoomManagement.fxml"));
+            root5 = FXMLLoader.load(getClass().getResource("/edu/ijse/lovers_leap/RoomManagement.fxml"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-        stage.centerOnScreen();
-        stage.setResizable(false);
+        Stage stage5 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene5 = new Scene(root5);
+        stage5.setScene(scene5);
+        stage5.centerOnScreen();
+        stage5.initStyle(StageStyle.UTILITY);
+        stage5.setResizable(false);
+        stage5.show();
     }
 
     @FXML

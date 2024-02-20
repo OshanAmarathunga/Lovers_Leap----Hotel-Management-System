@@ -25,6 +25,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -147,6 +148,11 @@ public class ReservationControllerFxml implements Initializable {
         return timetoString;
 
     }
+    static long getDaysDifference(String currentDate, String otherDate) {
+        LocalDate currentDateObj = LocalDate.parse(currentDate);
+        LocalDate otherDateObj = LocalDate.parse(otherDate);
+        return ChronoUnit.DAYS.between(currentDateObj, otherDateObj);
+    }
 
     @FXML
     void btnAddAction(ActionEvent event) {
@@ -200,7 +206,45 @@ public class ReservationControllerFxml implements Initializable {
 
     @FXML
     void btnCancellAction(ActionEvent event) {
+        Alert alert1 = new Alert(Alert.AlertType.CONFIRMATION);
+        alert1.setTitle("Are You Sure ?");
+        alert1.setContentText("Your Reservation will be cancel permanently! ");
+        Optional<ButtonType> result = alert1.showAndWait();
+        if (result.isEmpty()) {
+        } else if (result.get() == ButtonType.OK) {
+            try {
+                String dateOfIn=reservationController.getReservation(tblReservation.getSelectionModel().getSelectedItem().getReservationId()).getInDate();
+                String currentDate=getCurrentDate();
+                long daysDifference = getDaysDifference(currentDate, dateOfIn);
+                if(daysDifference>1){
+                    try {
+                        String rst=reservationController.updateReservationStatusByReservationId(tblReservation.getSelectionModel().getSelectedItem().getReservationId(),tblReservation.getSelectionModel().getSelectedItem().getRoomNo());
+                        clear();
+                        loadTables();
+                        Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
+                        alert2.setContentText(rst);
+                        Optional<ButtonType> result2 = alert2.showAndWait();
+                    } catch (Exception e) {
+                        Alert alert2 = new Alert(Alert.AlertType.ERROR);
+                        alert2.setContentText(e.getMessage());
+                        Optional<ButtonType> result2 = alert2.showAndWait();
 
+                    }
+
+
+                }else {
+                    Alert alert3 = new Alert(Alert.AlertType.ERROR);
+                    alert1.setTitle("Cancellation Error");
+                    alert1.setContentText("Sorry You can not Cancel this reservation due to exceed 24h time limit.");
+                    Optional<ButtonType> rst = alert1.showAndWait();
+                }
+            } catch (Exception e) {
+                Alert alert3 = new Alert(Alert.AlertType.ERROR);
+                alert1.setTitle("Error");
+                alert1.setContentText("Please select the reservation!");
+                Optional<ButtonType> rst = alert1.showAndWait();
+            }
+        }
     }
 
     @FXML
@@ -221,7 +265,7 @@ public class ReservationControllerFxml implements Initializable {
                 Optional<ButtonType> result2 = alert2.showAndWait();
             } catch (Exception e) {
                 Alert alert2 = new Alert(Alert.AlertType.ERROR);
-                alert2.setContentText(e.getMessage());
+                alert2.setContentText("Please Select the Relavent reservation to delete !");
                 Optional<ButtonType> result2 = alert2.showAndWait();
             }
 
@@ -244,17 +288,30 @@ public class ReservationControllerFxml implements Initializable {
                 int comparisonOfInandOut=dateOutSelection.compareTo(dateInSelection);
                 if(comparisonOfInandOut>=0){
                     try {
-                        String rst=reservationController.updateReservation(new ReservationDto(tblReservation.getSelectionModel().getSelectedItem().getReservationId(),Integer.parseInt(txtCusId.getText()),dateIN.getValue().toString(),dateOut.getValue().toString(),cmbBookingStatus.getValue(),txtRoomId.getText(),Integer.parseInt(txtGuests.getText()),getCurrentDate(),getCurrentTime()));
-                        clear();
-                        loadTables();
-                        Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
-                        alert2.setContentText(rst);
-                        Optional<ButtonType> result2 = alert2.showAndWait();
-                    } catch (Exception e) {
-                        Alert alert2 = new Alert(Alert.AlertType.ERROR);
-                        alert2.setContentText(e.getMessage());
-                        Optional<ButtonType> result2 = alert2.showAndWait();
+                        String bookingStatus=reservationController.getReservation(tblReservation.getSelectionModel().getSelectedItem().getReservationId()).getBookingStatus();
+                        if(!bookingStatus.equals("Cancelled")){
+                            try {
+                                String rst=reservationController.updateReservation(new ReservationDto(tblReservation.getSelectionModel().getSelectedItem().getReservationId(),Integer.parseInt(txtCusId.getText()),dateIN.getValue().toString(),dateOut.getValue().toString(),cmbBookingStatus.getValue(),txtRoomId.getText(),Integer.parseInt(txtGuests.getText()),getCurrentDate(),getCurrentTime()));
+                                clear();
+                                loadTables();
+                                Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
+                                alert2.setContentText(rst);
+                                Optional<ButtonType> result2 = alert2.showAndWait();
+                            } catch (Exception e) {
+                                Alert alert2 = new Alert(Alert.AlertType.ERROR);
+                                alert2.setContentText(e.getMessage());
+                                Optional<ButtonType> result2 = alert2.showAndWait();
 
+                            }
+
+                        }else {
+                            Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
+                            alert2.setTitle("Cancelled Booking!");
+                            alert2.setContentText("Selected Reservation is already cancelled,can not Update!!");
+                            Optional<ButtonType> result2 = alert2.showAndWait();
+                        }
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
                     }
 
                 }else {

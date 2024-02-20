@@ -81,4 +81,6 @@ public class ReservationDaoImpl implements ReservationDao {
     public boolean delete(Integer id) throws Exception {
         return CrudUtil.executeUpdate("DELETE FROM reservation WHERE Res_Id=?",id);
     }
+
+
 }

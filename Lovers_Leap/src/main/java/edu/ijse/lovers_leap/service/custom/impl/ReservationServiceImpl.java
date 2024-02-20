@@ -145,4 +145,52 @@ public class ReservationServiceImpl implements ReservationService {
         }
         return dlist;
     }
+
+    @Override
+    public ReservationDto getReservation(int id) throws Exception {
+        ReservationEntity ety=reservationDao.get(id);
+        return new ReservationDto(ety.getReservationId(),ety.getCustomerId(),ety.getInDate(),ety.getOutDate(),ety.getBookingStatus(),ety.getRoomNo(),ety.getNoOfGuests(),ety.getBookedDate(),ety.getBookedTime());
+    }
+
+    @Override
+    public String UpdateReservationStatus(int id,String roomNo) throws Exception {
+        Connection connection = DBConnection.getInstance().getConnection();
+        try{
+            connection.setAutoCommit(false);
+            ReservationEntity ety=reservationDao.get(id);
+            if(ety!=null){
+                ety.setBookingStatus("Cancelled");
+                if(reservationDao.update(ety)){
+                    RoomManagementEntity rmety=roomManagementDao.getId(roomNo);
+                    if(rmety!=null){
+                        rmety.setStatus("Available");
+                        if(roomManagementDao.update(rmety)){
+                            connection.commit();
+                            return "Successfully Cancelled the reservation NO : "+Integer.toString(id);
+                        }else {
+                            connection.rollback();
+                            return "Fail to update the room Status";
+                        }
+                    }else {
+                        connection.rollback();
+                        return "Fail to get the room management entity";
+                    }
+                }else {
+                    connection.rollback();
+                    return "Fail to update the status";
+                }
+            }else {
+                connection.rollback();
+                return "Fail to get the Reservation Entity";
+            }
+
+        }catch (Exception e){
+            connection.rollback();
+            e.printStackTrace();
+            throw e;
+        }finally {
+            connection.setAutoCommit(true);
+
+        }
+    }
 }

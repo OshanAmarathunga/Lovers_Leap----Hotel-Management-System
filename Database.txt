@@ -58,7 +58,7 @@ CONSTRAINT PRIMARY KEY (Room_Id),
 CONSTRAINT FOREIGN KEY(Cat_ID) REFERENCES Room_Category (CatID),
 CONSTRAINT FOREIGN KEY(Hotel_ID) REFERENCES HotelBranchDetail (Hotel_ID));
 
-INSERT INTO Room VALUES('R01',1,1,3,'Available');
+INSERT INTO Room VALUES('R04',1,2,3,'Available');
 -------------------------------------------------------------------------------------------------------------------------------------
 CREATE TABLE Reservation(
 Res_Id int AUTO_INCREMENT,
@@ -73,6 +73,7 @@ BookedTime time not null,
 CONSTRAINT PRIMARY KEY (Res_Id),
 CONSTRAINT FOREIGN KEY(Cus_ID) REFERENCES Customer (Cus_Id),
 CONSTRAINT FOREIGN KEY(Room_no) REFERENCES Room (Room_Id));
+--------------------------------------------------------------------------------------------------------------------------------------
 
 
 

@@ -24,5 +24,13 @@ public class ReservationController {
         return reservationService.getAll();
     }
 
+    public ReservationDto getReservation(int id) throws Exception{
+        return reservationService.getReservation(id);
+    }
+
+    public String updateReservationStatusByReservationId(int id,String roomId) throws Exception{
+        return reservationService.UpdateReservationStatus(id,roomId);
+    }
+
 
 }

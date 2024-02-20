@@ -124,7 +124,7 @@ public class RoomManagementControllerFxml implements Initializable {
         }
         cmbHotel.setItems(cmbHot);
         ObservableList<String> list= FXCollections.observableArrayList();
-        list.add("Available");
+        //list.add("Available");
         list.add("Booked");
         list.add("Under Maintenance");
         list.add("Under Preparation");

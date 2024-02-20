@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="640.0" prefWidth="1205.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ijse.lovers_leap.fxmlController.HomeFxmlController">
+<AnchorPane prefHeight="640.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ijse.lovers_leap.fxmlController.HomeFxmlController">
     <children>
         <AnchorPane layoutX="-4.0" layoutY="175.0" prefHeight="465.0" prefWidth="212.0" style="-fx-background-color: #112251;">
             <children>
@@ -51,7 +51,7 @@
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font></Label>
-                <Button fx:id="btnReservation" layoutX="23.0" layoutY="165.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="158.0" text="Reservation">
+                <Button fx:id="btnReservation" layoutX="23.0" layoutY="165.0" mnemonicParsing="false" onAction="#btnReservationAction" prefHeight="46.0" prefWidth="158.0" text="Reservation">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
@@ -68,7 +68,7 @@
                 <Font name="Eras Bold ITC" size="27.0" />
             </font>
         </Label>
-        <AnchorPane layoutX="208.0" prefHeight="571.0" prefWidth="997.0" style="-fx-background-color: #D0C7C7;">
+        <AnchorPane layoutX="208.0" prefHeight="571.0" prefWidth="797.0" style="-fx-background-color: #D0C7C7;">
             <children>
                 <TableView fx:id="tblShowCustomers" layoutX="3.0" layoutY="7.0" onMouseClicked="#tblShowCustomerMouseClicked" prefHeight="293.0" prefWidth="789.0">
                     <columns>
@@ -167,31 +167,24 @@
                 <Label layoutX="368.0" layoutY="323.0" text="Name" textFill="#969191" />
                 <Label layoutX="466.0" layoutY="323.0" text="Contatc No" textFill="#969191" />
                 <Label layoutX="578.0" layoutY="323.0" text="Email" textFill="#969191" />
-              <TableView layoutX="797.0" layoutY="7.0" prefHeight="549.0" prefWidth="193.0">
-                  <columns>
-                      <TableColumn prefWidth="67.199951171875" text="Room ID" />
-                      <TableColumn prefWidth="111.333251953125" text="Category" />
-                      <TableColumn prefWidth="117.3333740234375" text="Status" />
-                  </columns>
-              </TableView>
             </children>
         </AnchorPane>
-        <Button fx:id="btnAddCustomer" layoutX="340.0" layoutY="583.0" mnemonicParsing="false" onAction="#addCustomerAction" prefHeight="31.0" prefWidth="150.0" text="Add Customer">
+        <Button fx:id="btnAddCustomer" layoutX="237.0" layoutY="583.0" mnemonicParsing="false" onAction="#addCustomerAction" prefHeight="31.0" prefWidth="150.0" text="Add Customer">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font>
         </Button>
-        <Button fx:id="btnUpdateCustomer" layoutX="518.0" layoutY="583.0" mnemonicParsing="false" onAction="#updateAction" prefHeight="31.0" prefWidth="150.0" text="Update Customer">
+        <Button fx:id="btnUpdateCustomer" layoutX="415.0" layoutY="583.0" mnemonicParsing="false" onAction="#updateAction" prefHeight="31.0" prefWidth="150.0" text="Update Customer">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font>
         </Button>
-        <Button fx:id="btnPayment" layoutX="1036.0" layoutY="583.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="134.0" text="Payment">
+        <Button fx:id="btnPayment" layoutX="848.0" layoutY="583.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="134.0" text="Payment">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font>
         </Button>
-        <Button fx:id="btnDeleteCustomer" layoutX="693.0" layoutY="583.0" mnemonicParsing="false" onAction="#deleteAction" prefHeight="31.0" prefWidth="150.0" text="Delete Customer">
+        <Button fx:id="btnDeleteCustomer" layoutX="590.0" layoutY="583.0" mnemonicParsing="false" onAction="#deleteAction" prefHeight="31.0" prefWidth="150.0" text="Delete Customer">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font>
