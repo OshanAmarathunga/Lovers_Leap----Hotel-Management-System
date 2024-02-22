@@ -20,7 +20,7 @@ password varchar(15) not null,
 age int,
 contact_no varchar(15) not null UNIQUE,
 CONSTRAINT PRIMARY KEY (Rep_Id),
-CONSTRAINT FOREIGN KEY(Hotel_ID) REFERENCES HotelBranchDetail (Hotel_ID));
+CONSTRAINT FOREIGN KEY(Hotel_ID) REFERENCES HotelBranchDetail (Hotel_ID))AUTO_INCREMENT = 1000;
 
 INSERT INTO Receptionists VALUES(100500,'Admin','Admin','Senior Receptionists',1,'123',30,'0774872919');
 ------------------------------------------------------------------------------------------------------------------------

@@ -8,6 +8,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="477.0" prefWidth="666.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ijse.lovers_leap.fxmlController.LoginControllerFxml">
@@ -42,5 +43,9 @@
         </ImageView>
         <Label layoutX="379.0" layoutY="146.0" text="User ID" textFill="#817e7e" />
         <Label layoutX="379.0" layoutY="207.0" text="Password" textFill="#817e7e" />
+      <Line endX="205.33331298828125" layoutX="444.0" layoutY="388.0" startX="-100.0" stroke="#d7c6c6" />
+      <Label layoutX="344.0" layoutY="389.0" text="Forgot user id?" />
+      <TextField fx:id="txtMobileNo" layoutX="389.0" layoutY="420.0" onKeyPressed="#txtMobileNoKeyPress" prefHeight="25.0" prefWidth="133.0" promptText="Enter your Mobile No" />
+      <Button fx:id="btnSearch" layoutX="534.0" layoutY="420.0" mnemonicParsing="false" onAction="#btnSearchAction" text="Search" />
     </children>
 </AnchorPane>

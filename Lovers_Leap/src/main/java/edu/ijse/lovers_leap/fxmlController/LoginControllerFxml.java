@@ -16,7 +16,7 @@ import java.util.Optional;
 
 public class LoginControllerFxml {
     private ReceptionistController receptionistController = new ReceptionistController();
-    //HomeControllerFxml controllerFxml;
+
     Alert errorAlert = new Alert(Alert.AlertType.ERROR);
     private Stage stage;
     private Scene scene;
@@ -32,6 +32,30 @@ public class LoginControllerFxml {
 
     @FXML
     private TextField txtUserId;
+    @FXML
+    private Button btnSearch;
+    @FXML
+    private TextField txtMobileNo;
+
+    @FXML
+    void btnSearchAction(ActionEvent event) {
+        try {
+            int id=receptionistController.getId(txtMobileNo.getText()).getReceptionistId();
+            txtMobileNo.setText("");
+            Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
+            alert2.setTitle("Please login with this user ID");
+            alert2.setContentText("Your User Id ->" + id);
+            Optional<ButtonType> result2 = alert2.showAndWait();
+
+
+        } catch (Exception e) {
+            Alert alert2 = new Alert(Alert.AlertType.ERROR);
+            alert2.setTitle("Error!");
+            alert2.setContentText("Sorry,Incorrect mobile no! or Register as new Receptionist!");
+            Optional<ButtonType> result2 = alert2.showAndWait();
+        }
+
+    }
 
     @FXML
     void btnLogin(ActionEvent event) {
@@ -92,6 +116,14 @@ public class LoginControllerFxml {
         KeyCode k= event.getCode();
         if(k.getCode()==10){
             btnLogin.requestFocus();
+        }
+
+    }
+    @FXML
+    void txtMobileNoKeyPress(KeyEvent event) {
+        KeyCode k= event.getCode();
+        if(k.getCode()==10){
+            btnSearch.requestFocus();
         }
 
     }
