@@ -1,6 +1,7 @@
 package edu.ijse.lovers_leap.controller;
 
 import edu.ijse.lovers_leap.dto.ReservationDto;
+import edu.ijse.lovers_leap.dto.ReservationSummaryDto;
 import edu.ijse.lovers_leap.service.ServiceFactory;
 import edu.ijse.lovers_leap.service.custom.ReservationService;
 
@@ -30,6 +31,10 @@ public class ReservationController {
 
     public String updateReservationStatusByReservationId(int id,String roomId) throws Exception{
         return reservationService.UpdateReservationStatus(id,roomId);
+    }
+
+    public ArrayList<ReservationSummaryDto> getAllSummary() throws Exception{
+        return reservationService.getAllSummary();
     }
 
 

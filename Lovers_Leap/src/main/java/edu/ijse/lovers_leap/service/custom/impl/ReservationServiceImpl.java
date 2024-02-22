@@ -1,22 +1,29 @@
 package edu.ijse.lovers_leap.service.custom.impl;
 
 import edu.ijse.lovers_leap.dao.DaoFactory;
+import edu.ijse.lovers_leap.dao.custom.CustomerDao;
 import edu.ijse.lovers_leap.dao.custom.ReservationDao;
+import edu.ijse.lovers_leap.dao.custom.RoomCategoryDao;
 import edu.ijse.lovers_leap.dao.custom.RoomManagementDao;
 import edu.ijse.lovers_leap.db.DBConnection;
 import edu.ijse.lovers_leap.dto.ReservationDto;
+import edu.ijse.lovers_leap.dto.ReservationSummaryDto;
 import edu.ijse.lovers_leap.entity.ReservationEntity;
 import edu.ijse.lovers_leap.entity.RoomManagementEntity;
 import edu.ijse.lovers_leap.service.custom.ReservationService;
 import edu.ijse.lovers_leap.service.custom.RoomManagementService;
 
 import java.sql.Connection;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
 public class ReservationServiceImpl implements ReservationService {
     private ReservationDao reservationDao = (ReservationDao) DaoFactory.getInstance().getDao(DaoFactory.DaoTypes.RESERVATION);
     private RoomManagementDao roomManagementDao = (RoomManagementDao) DaoFactory.getInstance().getDao(DaoFactory.DaoTypes.ROOMMANAGEMENT);
-
+    private CustomerDao customerDao=(CustomerDao) DaoFactory.getInstance().getDao(DaoFactory.DaoTypes.CUSTOMER);
+    private RoomCategoryDao roomCategoryDao=(RoomCategoryDao) DaoFactory.getInstance().getDao(DaoFactory.DaoTypes.ROOMCATEGORY);
     @Override
     public String saveReservation(ReservationDto dto) throws Exception {
         Connection connection = DBConnection.getInstance().getConnection();
@@ -192,5 +199,23 @@ public class ReservationServiceImpl implements ReservationService {
             connection.setAutoCommit(true);
 
         }
+    }
+
+    @Override
+    public ArrayList<ReservationSummaryDto> getAllSummary() throws Exception {
+        ArrayList<ReservationSummaryDto> reservationSummaryDtos=new ArrayList<>();
+        ArrayList<ReservationEntity> rdtos=reservationDao.getAll();
+
+
+        for(ReservationEntity ety:rdtos){
+            reservationSummaryDtos.add(new ReservationSummaryDto(ety.getReservationId(),customerDao.get(ety.getCustomerId()).getFirst_Name(),customerDao.get(ety.getCustomerId()).getContact_no(),ety.getRoomNo(),ety.getBookingStatus(),roomCategoryDao.get(roomManagementDao.getId(ety.getRoomNo()).getCat_ID()).getCostPerNight(),(int)getDays(ety.getInDate().toString(),ety.getOutDate().toString())));
+        }
+        return reservationSummaryDtos;
+    }
+
+     long getDays(String currentDate, String otherDate) {
+        LocalDate currentDateObj = LocalDate.parse(currentDate);
+        LocalDate otherDateObj = LocalDate.parse(otherDate);
+        return ChronoUnit.DAYS.between(currentDateObj, otherDateObj);
     }
 }

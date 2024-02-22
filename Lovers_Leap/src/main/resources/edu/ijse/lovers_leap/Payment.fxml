@@ -6,12 +6,12 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane prefHeight="547.0" prefWidth="1118.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ijse.lovers_leap.fxmlController.PaymentControllerFxml">
    <children>
@@ -47,7 +47,6 @@
             <Font name="System Bold Italic" size="13.0" />
          </font>
       </Button>
-      <ComboBox fx:id="cmbPackageCost" editable="true" layoutX="46.0" layoutY="104.0" onKeyPressed="#cmbPackageCostKeyPress" prefHeight="25.0" prefWidth="149.0" promptText="Package Costs" />
       <Button fx:id="btnPayHere" layoutX="375.0" layoutY="503.0" mnemonicParsing="false" onAction="#btnPayHereAction" prefHeight="27.0" prefWidth="141.0" text="Pay Here">
          <font>
             <Font name="System Bold Italic" size="14.0" />
@@ -72,9 +71,9 @@
             </Label>
             <TableView fx:id="tblReservationSummary" layoutX="6.0" layoutY="20.0" onMouseClicked="#tblReservationSummaryMouseClick" prefHeight="209.0" prefWidth="527.0">
               <columns>
-                <TableColumn fx:id="colReservationIDRS" prefWidth="70.00006103515625" text="Res_ID" />
-                <TableColumn fx:id="colCusNameRS" prefWidth="85.99993896484375" text="Cus_Name" />
-                  <TableColumn fx:id="colContatcNoRS" prefWidth="69.33331298828125" text="Contact No" />
+                <TableColumn fx:id="colReservationIDRS" prefWidth="46.66668701171875" text="Res_ID" />
+                <TableColumn fx:id="colCusNameRS" prefWidth="93.33331298828125" text="Cus_Name" />
+                  <TableColumn fx:id="colContatcNoRS" prefWidth="86.0" text="Contact No" />
                   <TableColumn fx:id="colRoomNoRs" prefWidth="63.33331298828125" text="Room No" />
                   <TableColumn fx:id="colPackageRS" prefWidth="71.3333740234375" text="Package" />
                   <TableColumn fx:id="colRoomCostRS" prefWidth="75.0" text="Room Cost" />
@@ -103,5 +102,10 @@
             <Font name="System Bold Italic" size="11.0" />
          </font>
       </Button>
+      <TextField fx:id="txtPackageCost" layoutX="46.0" layoutY="104.0" promptText="Package Cost">
+         <tooltip>
+            <Tooltip text="Full Board- 5500/=,  Half Board-4000/=, Bed and Breakfast-1500/=" />
+         </tooltip>
+      </TextField>
    </children>
 </AnchorPane>
