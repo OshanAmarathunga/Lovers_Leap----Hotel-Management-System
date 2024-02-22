@@ -18,9 +18,9 @@ public class LoginControllerFxml {
     private ReceptionistController receptionistController = new ReceptionistController();
 
     Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
+//    private Stage stage;
+//    private Scene scene;
+//    private Parent root;
     @FXML
     private Button btnLogin;
 
@@ -67,14 +67,16 @@ public class LoginControllerFxml {
             try {
                 if (receptionistController.getReceptionist(Integer.parseInt(txtUserId.getText())).getPassword().equals(txtPassword.getText())) {
                     try {
+
+                        Parent root;
                         root = FXMLLoader.load(getClass().getResource("/edu/ijse/lovers_leap/home.fxml"));
-                        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                        scene = new Scene(root);
-                        stage.setScene(scene);
-                        stage.show();
-                        stage.centerOnScreen();
-                        stage.setResizable(false);
-                        stage.initStyle(StageStyle.UTILITY);
+                        Stage stage1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        Scene scene1 = new Scene(root);
+                        stage1.setScene(scene1);
+                        stage1.show();
+                        stage1.centerOnScreen();
+                        stage1.setResizable(false);
+                        stage1.initStyle(StageStyle.UTILITY);
 
                     } catch (Exception e) {
                         System.out.println(e);
@@ -96,14 +98,14 @@ public class LoginControllerFxml {
     @FXML
     void btnRegister(ActionEvent event) {
         try {
-            root = FXMLLoader.load(getClass().getResource("/edu/ijse/lovers_leap/Receptionist_Register.fxml"));
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-            stage.centerOnScreen();
-            stage.initStyle(StageStyle.UTILITY);
-            stage.setResizable(false);
+            Parent root2 = FXMLLoader.load(getClass().getResource("/edu/ijse/lovers_leap/Receptionist_Register.fxml"));
+            Stage stage2 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene2 = new Scene(root2);
+            stage2.setScene(scene2);
+            stage2.show();
+            stage2.centerOnScreen();
+            stage2.initStyle(StageStyle.UTILITY);
+            stage2.setResizable(false);
 
         } catch (Exception e) {
             System.out.println(e);

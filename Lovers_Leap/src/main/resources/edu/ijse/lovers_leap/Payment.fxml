@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="547.0" prefWidth="1118.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ijse.lovers_leap.fxmlController.PaymentControllerFxml">
+   <children>
+      <AnchorPane prefHeight="54.0" prefWidth="1118.0" style="-fx-background-color: #f03d3a;">
+         <children>
+            <ImageView fitHeight="42.0" fitWidth="77.0" layoutX="440.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/cashless-payment.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="499.0" layoutY="16.0" text="Payment Manage">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <TextField fx:id="txtReservationID" editable="false" layoutX="46.0" layoutY="64.0" promptText="Reservation" />
+      <TextField fx:id="txtCustomerName" editable="false" layoutX="213.0" layoutY="64.0" promptText="Customer" />
+      <TextField fx:id="txtRoomCost" editable="false" layoutX="389.0" layoutY="64.0" promptText="Room Cost" />
+      <TextField fx:id="txtDaysStayed" layoutX="213.0" layoutY="104.0" onKeyPressed="#txtDaysStayedKeyPress" promptText="Days Stayed" />
+      <TableView fx:id="tblPaymentCart" layoutX="46.0" layoutY="325.0" onMouseClicked="#tblPaymentSummaryMouseClick" prefHeight="169.0" prefWidth="471.0">
+        <columns>
+            <TableColumn fx:id="colReservationIDPC" prefWidth="75.0" text="Res_ID" />
+            <TableColumn fx:id="colAmoutPC" prefWidth="139.33329010009766" text="Amount" />
+            <TableColumn fx:id="colPAymentMethodPC" prefWidth="129.33331298828125" text="Payment Method" />
+          <TableColumn fx:id="colCusNamePC" prefWidth="125.33328247070312" text="Cus_Name" />
+        </columns>
+      </TableView>
+      <ComboBox fx:id="cmbPaymentMethod" layoutX="389.0" layoutY="104.0" onKeyPressed="#cmbPaymentMethodKeyPressed" prefWidth="150.0" promptText="Payment Method" />
+      <Button fx:id="btnAddToCart" layoutX="118.0" layoutY="173.0" mnemonicParsing="false" onAction="#btnAddToCartAction" prefHeight="27.0" prefWidth="340.0" text="Add to cart">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font>
+      </Button>
+      <ComboBox fx:id="cmbPackageCost" editable="true" layoutX="46.0" layoutY="104.0" onKeyPressed="#cmbPackageCostKeyPress" prefHeight="25.0" prefWidth="149.0" promptText="Package Costs" />
+      <Button fx:id="btnPayHere" layoutX="375.0" layoutY="503.0" mnemonicParsing="false" onAction="#btnPayHereAction" prefHeight="27.0" prefWidth="141.0" text="Pay Here">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Button>
+      <Label layoutX="46.0" layoutY="301.0" text="Payment Cart">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="42.0" fitWidth="53.0" layoutX="526.0" layoutY="389.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/arrow.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="577.0" layoutY="55.0" prefHeight="494.0" prefWidth="541.0" style="-fx-background-color: #f03d3a;">
+         <children>
+            <Label layoutX="6.0" layoutY="1.0" text="Resevation Summary">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tblReservationSummary" layoutX="6.0" layoutY="20.0" onMouseClicked="#tblReservationSummaryMouseClick" prefHeight="209.0" prefWidth="527.0">
+              <columns>
+                <TableColumn fx:id="colReservationIDRS" prefWidth="70.00006103515625" text="Res_ID" />
+                <TableColumn fx:id="colCusNameRS" prefWidth="85.99993896484375" text="Cus_Name" />
+                  <TableColumn fx:id="colContatcNoRS" prefWidth="69.33331298828125" text="Contact No" />
+                  <TableColumn fx:id="colRoomNoRs" prefWidth="63.33331298828125" text="Room No" />
+                  <TableColumn fx:id="colPackageRS" prefWidth="71.3333740234375" text="Package" />
+                  <TableColumn fx:id="colRoomCostRS" prefWidth="75.0" text="Room Cost" />
+                  <TableColumn fx:id="colStayedDaysRS" prefWidth="88.666748046875" text="Stayed Date" />
+              </columns>
+            </TableView>
+            <TableView fx:id="tblPaymentSummary" layoutX="4.0" layoutY="265.0" prefHeight="209.0" prefWidth="527.0">
+              <columns>
+                <TableColumn fx:id="colPaymentIdPS" prefWidth="87.333251953125" text="Payment ID" />
+                <TableColumn fx:id="colCustomerNamePS" prefWidth="148.6666259765625" text="Customer" />
+                  <TableColumn fx:id="colTotalAmountPS" prefWidth="154.6666259765625" text="Total Amount" />
+                  <TableColumn fx:id="colPaymentMethodPS" prefWidth="134.66680908203125" text="Payment Method" />
+              </columns>
+            </TableView>
+            <Label layoutX="4.0" layoutY="239.0" text="Payment Summary">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
+            </Label>
+            <Line endX="727.3333740234375" layoutX="-202.0" layoutY="239.0" startX="210.33331298828125" />
+         </children>
+      </AnchorPane>
+      <Line endX="366.33331298828125" layoutX="147.0" layoutY="299.0" startX="-100.0" />
+      <Button fx:id="btnDelete" layoutX="47.0" layoutY="503.0" mnemonicParsing="false" onAction="#btnDeleteAction" prefHeight="24.0" prefWidth="49.0" text="Delete">
+         <font>
+            <Font name="System Bold Italic" size="11.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

@@ -76,11 +76,11 @@ public class ReceptionistsRegisterControllerFxml implements Initializable {
                             alert.setContentText("Your Login Id --->  " + userID);
                             Optional<ButtonType> result = alert.showAndWait();
 
-                            root = FXMLLoader.load(getClass().getResource("/edu/ijse/lovers_leap/login.fxml"));
-                            stage=(Stage) ((Node)event.getSource()).getScene().getWindow();
-                            scene = new Scene(root);
-                            stage.setScene(scene);
-                            stage.show();
+//                            root = FXMLLoader.load(getClass().getResource("/edu/ijse/lovers_leap/login.fxml"));
+//                            stage=(Stage) ((Node)event.getSource()).getScene().getWindow();
+//                            scene = new Scene(root);
+//                            stage.setScene(scene);
+//                            stage.show();
 
 //
 //                    if(result.isEmpty()){
