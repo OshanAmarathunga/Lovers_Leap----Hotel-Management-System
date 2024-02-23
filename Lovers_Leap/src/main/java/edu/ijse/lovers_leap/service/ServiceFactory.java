@@ -31,6 +31,8 @@ public class ServiceFactory {
                 return new RoomManagementServiceImpl();
             case RESERVATION:
                 return new ReservationServiceImpl();
+            case PAYMENT_SUMMARY:
+                return new PaymentSummaryServiceImpl();
             default:
                 throw new AssertionError();
         }
@@ -38,7 +40,7 @@ public class ServiceFactory {
     }
 
     public enum ServiceType{
-        RECEIPTIONIST,CUSTOMER,HOTELDETAIL,ROOMCATEGORY,ROOMMANAGEMENT,RESERVATION;
+        RECEIPTIONIST,CUSTOMER,HOTELDETAIL,ROOMCATEGORY,ROOMMANAGEMENT,RESERVATION,PAYMENT_SUMMARY;
     }
 
 }

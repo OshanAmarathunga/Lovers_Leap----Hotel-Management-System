@@ -30,12 +30,16 @@ public class DaoFactory {
                 return new RoomManagementDaoImpl();
             case RESERVATION:
                 return new ReservationDaoImpl();
+            case PAYMENT_SUMMARY:
+                return new PaymentSummaryDaoImpl();
+            case PAYMENT_DETAIL:
+                return new PaymentDetailDaoImpl();
             default:
                 return null;
         }
     }
 
     public enum DaoTypes{
-        RECEPTIONIST,CUSTOMER,HOTELDETAIL,ROOMCATEGORY,ROOMMANAGEMENT,RESERVATION;
+        RECEPTIONIST,CUSTOMER,HOTELDETAIL,ROOMCATEGORY,ROOMMANAGEMENT,RESERVATION,PAYMENT_SUMMARY, PAYMENT_DETAIL;
     }
 }

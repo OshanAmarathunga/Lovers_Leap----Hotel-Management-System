@@ -38,7 +38,7 @@
             <TableColumn fx:id="colReservationIDPC" prefWidth="75.0" text="Res_ID" />
             <TableColumn fx:id="colAmoutPC" prefWidth="139.33329010009766" text="Amount" />
             <TableColumn fx:id="colPAymentMethodPC" prefWidth="129.33331298828125" text="Payment Method" />
-          <TableColumn fx:id="colCusNamePC" prefWidth="125.33328247070312" text="Cus_Name" />
+          <TableColumn fx:id="colCusNamePC" prefWidth="125.33328247070312" text="Customer Name" />
         </columns>
       </TableView>
       <ComboBox fx:id="cmbPaymentMethod" layoutX="389.0" layoutY="104.0" onKeyPressed="#cmbPaymentMethodKeyPressed" prefWidth="150.0" promptText="Payment Method" />
@@ -83,9 +83,11 @@
             <TableView fx:id="tblPaymentSummary" layoutX="4.0" layoutY="265.0" prefHeight="209.0" prefWidth="527.0">
               <columns>
                 <TableColumn fx:id="colPaymentIdPS" prefWidth="87.333251953125" text="Payment ID" />
-                <TableColumn fx:id="colCustomerNamePS" prefWidth="148.6666259765625" text="Customer" />
-                  <TableColumn fx:id="colTotalAmountPS" prefWidth="154.6666259765625" text="Total Amount" />
-                  <TableColumn fx:id="colPaymentMethodPS" prefWidth="134.66680908203125" text="Payment Method" />
+                <TableColumn fx:id="colCustomerNamePS" prefWidth="91.33331298828125" text="Customer" />
+                  <TableColumn fx:id="colTotalAmountPS" prefWidth="87.33331298828125" text="Total Amount" />
+                  <TableColumn fx:id="colPaymentMethodPS" prefWidth="109.3333740234375" text="Payment Method" />
+                  <TableColumn fx:id="colPaidDatePS" prefWidth="72.00006103515625" text="Paid Date" />
+                  <TableColumn fx:id="colPaidTimePS" prefWidth="75.0" text="Paid Time" />
               </columns>
             </TableView>
             <Label layoutX="4.0" layoutY="239.0" text="Payment Summary">

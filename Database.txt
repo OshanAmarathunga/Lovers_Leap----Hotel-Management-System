@@ -74,6 +74,21 @@ CONSTRAINT PRIMARY KEY (Res_Id),
 CONSTRAINT FOREIGN KEY(Cus_ID) REFERENCES Customer (Cus_Id),
 CONSTRAINT FOREIGN KEY(Room_no) REFERENCES Room (Room_Id));
 --------------------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE Payment_Summary(
+Pay_Id int AUTO_INCREMENT,
+Total_Amount Double NOT NULL,
+Cus_Name Varchar(20) Not Null,
+Payment_Method varchar(20) Not null,
+payment_Date Date Not Null,
+Payment_Time Time Not Null,
+CONSTRAINT PRIMARY KEY (Pay_Id));
 
+------------------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE Payment_Details(
+Pay_Id int,
+Res_ID int NOT NULL,
+amount double Not Null,
+CONSTRAINT FOREIGN KEY(Res_ID) REFERENCES Reservation (Res_Id));
+--------------------------------------------------------------------------------------------------------------------------------------
 
-
+SELECT MAX(Res_Id) AS Last_Pay_Id FROM Reservation;
