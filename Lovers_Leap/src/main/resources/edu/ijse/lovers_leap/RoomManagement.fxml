@@ -42,7 +42,7 @@
             </font>
         </Label>
         <TextField fx:id="txtRoomNo" layoutX="152.0" layoutY="81.0" onKeyPressed="#txtRoomNoKeyPress" prefHeight="26.0" prefWidth="302.0" promptText="Enter Roon No" />
-        <Button fx:id="btnClear" layoutX="468.0" layoutY="81.0" mnemonicParsing="false" onAction="#btnClearAction" text="Clear">
+        <Button id="btna" fx:id="btnClear" layoutX="468.0" layoutY="81.0" mnemonicParsing="false" onAction="#btnClearAction" stylesheets="@Style.css" text="Clear" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="10.0" />
             </font>
@@ -71,17 +71,17 @@
             </font>
         </Label>
         <ComboBox fx:id="cmbStatus" layoutX="152.0" layoutY="259.0" onKeyPressed="#cmbStatusKeyPress" prefHeight="26.0" prefWidth="302.0" promptText="Select Room Status" />
-        <Button fx:id="btnAdd" layoutX="39.0" layoutY="363.0" mnemonicParsing="false" onAction="#btnAddReceiptionistAction" prefHeight="31.0" prefWidth="122.0" text="Add Room">
+        <Button id="btna" fx:id="btnAdd" layoutX="39.0" layoutY="363.0" mnemonicParsing="false" onAction="#btnAddReceiptionistAction" prefHeight="31.0" prefWidth="122.0" stylesheets="@Style.css" text="Add Room" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font>
         </Button>
-        <Button fx:id="btnUpdate" layoutX="180.0" layoutY="363.0" mnemonicParsing="false" onAction="#btnUpdateAction" prefHeight="31.0" prefWidth="129.0" text="Update Details">
+        <Button id="btna" fx:id="btnUpdate" layoutX="180.0" layoutY="363.0" mnemonicParsing="false" onAction="#btnUpdateAction" prefHeight="31.0" prefWidth="129.0" stylesheets="@Style.css" text="Update Details" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font>
         </Button>
-        <Button fx:id="btnDelete" layoutX="338.0" layoutY="363.0" mnemonicParsing="false" onAction="#btnDeleteAction" prefHeight="31.0" prefWidth="129.0" text="Delete Room">
+        <Button id="btna" fx:id="btnDelete" layoutX="338.0" layoutY="363.0" mnemonicParsing="false" onAction="#btnDeleteAction" prefHeight="31.0" prefWidth="129.0" stylesheets="@Style.css" text="Delete Room" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font>

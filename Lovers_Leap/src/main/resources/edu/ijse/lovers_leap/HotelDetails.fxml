@@ -35,17 +35,17 @@
                 <TableColumn fx:id="colContatcNo" prefWidth="105.60003662109375" text="Contact No" />
             </columns>
         </TableView>
-        <Button fx:id="btnAdd" layoutX="44.0" layoutY="342.0" mnemonicParsing="false" onAction="#btnAddAction" prefHeight="30.0" prefWidth="124.0" text="Add">
+        <Button id="btna" fx:id="btnAdd" layoutX="44.0" layoutY="342.0" mnemonicParsing="false" onAction="#btnAddAction" prefHeight="30.0" prefWidth="124.0" stylesheets="@Style.css" text="Add" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
         </Button>
-        <Button fx:id="btnUpdate" layoutX="190.0" layoutY="342.0" mnemonicParsing="false" onAction="#btnUpdateAction" prefHeight="30.0" prefWidth="124.0" text="Update">
+        <Button id="btna" fx:id="btnUpdate" layoutX="190.0" layoutY="342.0" mnemonicParsing="false" onAction="#btnUpdateAction" prefHeight="30.0" prefWidth="124.0" stylesheets="@Style.css" text="Update" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
         </Button>
-        <Button fx:id="btnDelete" layoutX="332.0" layoutY="342.0" mnemonicParsing="false" onAction="#btnDeleteAction" prefHeight="30.0" prefWidth="124.0" text="Delete">
+        <Button id="btna" fx:id="btnDelete" layoutX="332.0" layoutY="342.0" mnemonicParsing="false" onAction="#btnDeleteAction" prefHeight="30.0" prefWidth="124.0" stylesheets="@Style.css" text="Delete" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>

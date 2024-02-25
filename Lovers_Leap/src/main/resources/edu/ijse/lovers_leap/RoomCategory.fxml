@@ -53,22 +53,22 @@
             </font>
         </Label>
         <TextArea fx:id="txtDescription" layoutX="201.0" layoutY="193.0" onKeyPressed="#txtDescriptionKeyPressAction" prefHeight="123.0" prefWidth="254.0" promptText="Write a small description about he room category" wrapText="true" />
-        <Button fx:id="btnAdd" layoutX="65.0" layoutY="380.0" mnemonicParsing="false" onAction="#btnAddAction" prefHeight="30.0" prefWidth="124.0" text="Add">
+        <Button id="btna" fx:id="btnAdd" layoutX="65.0" layoutY="380.0" mnemonicParsing="false" onAction="#btnAddAction" prefHeight="30.0" prefWidth="124.0" stylesheets="@Style.css" text="Add" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
         </Button>
-        <Button fx:id="btnUpdate" layoutX="211.0" layoutY="380.0" mnemonicParsing="false" onAction="#btnUpdateAction" prefHeight="30.0" prefWidth="124.0" text="Update">
+        <Button id="btna" fx:id="btnUpdate" layoutX="211.0" layoutY="380.0" mnemonicParsing="false" onAction="#btnUpdateAction" prefHeight="30.0" prefWidth="124.0" stylesheets="@Style.css" text="Update" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
         </Button>
-        <Button fx:id="btnDelete" layoutX="353.0" layoutY="380.0" mnemonicParsing="false" onAction="#btnDeleteAction" prefHeight="30.0" prefWidth="124.0" text="Delete">
+        <Button id="btna" fx:id="btnDelete" layoutX="353.0" layoutY="380.0" mnemonicParsing="false" onAction="#btnDeleteAction" prefHeight="30.0" prefWidth="124.0" stylesheets="@Style.css" text="Delete" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
         </Button>
-        <Button fx:id="btnClear" layoutX="483.0" layoutY="107.0" mnemonicParsing="false" onAction="#btnClearAction" prefHeight="22.0" prefWidth="42.0" text="Clear">
+        <Button id="btna" fx:id="btnClear" layoutX="483.0" layoutY="107.0" mnemonicParsing="false" onAction="#btnClearAction" prefHeight="22.0" prefWidth="42.0" stylesheets="@Style.css" text="Clear" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="10.0" />
             </font>

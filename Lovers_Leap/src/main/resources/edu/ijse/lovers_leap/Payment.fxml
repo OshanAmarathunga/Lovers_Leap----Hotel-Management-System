@@ -15,14 +15,14 @@
 
 <AnchorPane prefHeight="547.0" prefWidth="1118.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ijse.lovers_leap.fxmlController.PaymentControllerFxml">
    <children>
-      <AnchorPane prefHeight="54.0" prefWidth="1118.0" style="-fx-background-color: #f03d3a;">
+      <AnchorPane prefHeight="54.0" prefWidth="1118.0" style="-fx-background-color: #872657;">
          <children>
             <ImageView fitHeight="42.0" fitWidth="77.0" layoutX="440.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/cashless-payment.png" />
                </image>
             </ImageView>
-            <Label layoutX="499.0" layoutY="16.0" text="Payment Manage">
+            <Label layoutX="499.0" layoutY="16.0" text="Payment Manage" textFill="WHITE">
                <font>
                   <Font name="Arial Rounded MT Bold" size="18.0" />
                </font>
@@ -42,12 +42,12 @@
         </columns>
       </TableView>
       <ComboBox fx:id="cmbPaymentMethod" layoutX="389.0" layoutY="104.0" onKeyPressed="#cmbPaymentMethodKeyPressed" prefWidth="150.0" promptText="Payment Method" />
-      <Button fx:id="btnAddToCart" layoutX="118.0" layoutY="173.0" mnemonicParsing="false" onAction="#btnAddToCartAction" prefHeight="27.0" prefWidth="340.0" text="Add to cart">
+      <Button id="btna" fx:id="btnAddToCart" layoutX="118.0" layoutY="173.0" mnemonicParsing="false" onAction="#btnAddToCartAction" prefHeight="27.0" prefWidth="340.0" stylesheets="@Style.css" text="Add to cart" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="btnPayHere" layoutX="375.0" layoutY="503.0" mnemonicParsing="false" onAction="#btnPayHereAction" prefHeight="27.0" prefWidth="141.0" text="Pay Here">
+      <Button id="btna" fx:id="btnPayHere" layoutX="375.0" layoutY="503.0" mnemonicParsing="false" onAction="#btnPayHereAction" prefHeight="27.0" prefWidth="141.0" stylesheets="@Style.css" text="Pay Here" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font>
@@ -62,9 +62,9 @@
             <Image url="@images/arrow.png" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="577.0" layoutY="55.0" prefHeight="494.0" prefWidth="541.0" style="-fx-background-color: #f03d3a;">
+      <AnchorPane layoutX="577.0" layoutY="55.0" prefHeight="494.0" prefWidth="541.0" style="-fx-background-color: #872657;">
          <children>
-            <Label layoutX="6.0" layoutY="1.0" text="Resevation Summary">
+            <Label layoutX="6.0" layoutY="1.0" text="Resevation Summary" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="13.0" />
                </font>
@@ -90,7 +90,7 @@
                   <TableColumn fx:id="colPaidTimePS" prefWidth="75.0" text="Paid Time" />
               </columns>
             </TableView>
-            <Label layoutX="4.0" layoutY="239.0" text="Payment Summary">
+            <Label layoutX="4.0" layoutY="239.0" text="Payment Summary" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="13.0" />
                </font>
@@ -99,7 +99,7 @@
          </children>
       </AnchorPane>
       <Line endX="366.33331298828125" layoutX="147.0" layoutY="299.0" startX="-100.0" />
-      <Button fx:id="btnDelete" layoutX="47.0" layoutY="503.0" mnemonicParsing="false" onAction="#btnDeleteAction" prefHeight="24.0" prefWidth="49.0" text="Delete">
+      <Button id="btna" fx:id="btnDelete" layoutX="47.0" layoutY="503.0" mnemonicParsing="false" onAction="#btnDeleteAction" prefHeight="24.0" prefWidth="49.0" stylesheets="@Style.css" text="Delete" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="11.0" />
          </font>

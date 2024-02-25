@@ -19,7 +19,7 @@
             </font>
         </Label>
         <TextField fx:id="txtUserId" layoutX="379.0" layoutY="164.0" onKeyPressed="#txtUserIDKeyPresses" prefHeight="26.0" prefWidth="210.0" />
-        <Button id="btnLogin" fx:id="btnLogin" alignment="CENTER" graphicTextGap="1.0" layoutX="384.0" layoutY="274.0" mnemonicParsing="false" onAction="#btnLogin" prefHeight="34.0" prefWidth="210.0" style="-fx-background-color: #44B9FF;" text="Login">
+        <Button id="btna" fx:id="btnLogin" alignment="CENTER" graphicTextGap="1.0" layoutX="384.0" layoutY="274.0" mnemonicParsing="false" onAction="#btnLogin" prefHeight="34.0" prefWidth="210.0" stylesheets="@Style.css" text="Login" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font>
@@ -27,7 +27,7 @@
                 <DropShadow />
             </effect>
         </Button>
-        <Button fx:id="btnRegister" alignment="CENTER" layoutX="383.0" layoutY="317.0" mnemonicParsing="false" onAction="#btnRegister" prefHeight="34.0" prefWidth="210.0" style="-fx-background-color: #44B9FF;" text="Register">
+        <Button id="btna" fx:id="btnRegister" alignment="CENTER" layoutX="383.0" layoutY="317.0" mnemonicParsing="false" onAction="#btnRegister" prefHeight="34.0" prefWidth="210.0" stylesheets="@Style.css" text="Register" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font>
@@ -46,6 +46,9 @@
       <Line endX="205.33331298828125" layoutX="444.0" layoutY="388.0" startX="-100.0" stroke="#d7c6c6" />
       <Label layoutX="344.0" layoutY="389.0" text="Forgot user id?" />
       <TextField fx:id="txtMobileNo" layoutX="389.0" layoutY="420.0" onKeyPressed="#txtMobileNoKeyPress" prefHeight="25.0" prefWidth="133.0" promptText="Enter your Mobile No" />
-      <Button fx:id="btnSearch" layoutX="534.0" layoutY="420.0" mnemonicParsing="false" onAction="#btnSearchAction" text="Search" />
+      <Button id="btna" fx:id="btnSearch" layoutX="534.0" layoutY="420.0" mnemonicParsing="false" onAction="#btnSearchAction" stylesheets="@Style.css" text="Search" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Button>
     </children>
 </AnchorPane>

@@ -86,17 +86,17 @@
       <DatePicker fx:id="dateOut" layoutX="23.0" layoutY="197.0" onKeyPressed="#dateOutKeyPress" prefHeight="25.0" prefWidth="165.0" promptText="Check Out Date" />
       <ComboBox fx:id="cmbBookingStatus" layoutX="23.0" layoutY="236.0" onKeyPressed="#cmbBookingStatusKeyPress" prefHeight="25.0" prefWidth="165.0" promptText="Booking Status" />
       <TextField fx:id="txtGuests" layoutX="23.0" layoutY="271.0" onKeyPressed="#txtGuestsKeyPress" prefHeight="25.0" prefWidth="165.0" promptText="No of Guests" />
-      <Button fx:id="btnAdd" layoutX="207.0" layoutY="271.0" mnemonicParsing="false" onAction="#btnAddAction" prefHeight="25.0" prefWidth="78.0" text="Add">
+      <Button id="btna" fx:id="btnAdd" layoutX="207.0" layoutY="271.0" mnemonicParsing="false" onAction="#btnAddAction" prefHeight="25.0" prefWidth="78.0" stylesheets="@Style.css" text="Add" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="btnUpdate" layoutX="207.0" layoutY="235.0" mnemonicParsing="false" onAction="#btnUpdateAction" prefHeight="25.0" prefWidth="78.0" text="Update">
+      <Button id="btna" fx:id="btnUpdate" layoutX="207.0" layoutY="235.0" mnemonicParsing="false" onAction="#btnUpdateAction" prefHeight="25.0" prefWidth="78.0" stylesheets="@Style.css" text="Update" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="btnCancell" layoutX="506.0" layoutY="270.0" mnemonicParsing="false" onAction="#btnCancellAction" prefHeight="27.0" prefWidth="115.0" text="Cancel Booking">
+      <Button id="btna" fx:id="btnCancell" layoutX="506.0" layoutY="270.0" mnemonicParsing="false" onAction="#btnCancellAction" prefHeight="27.0" prefWidth="115.0" stylesheets="@Style.css" text="Cancel Booking" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="13.0" />
          </font>
@@ -104,7 +104,7 @@
             <Tooltip text="After 24h You can not Cancell the Booking." />
          </tooltip>
       </Button>
-      <Button fx:id="btnDelete" layoutX="207.0" layoutY="196.0" mnemonicParsing="false" onAction="#btnDeleteAction" prefHeight="25.0" prefWidth="78.0" text="Delete">
+      <Button id="btna" fx:id="btnDelete" layoutX="207.0" layoutY="196.0" mnemonicParsing="false" onAction="#btnDeleteAction" prefHeight="25.0" prefWidth="78.0" stylesheets="@Style.css" text="Delete" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>

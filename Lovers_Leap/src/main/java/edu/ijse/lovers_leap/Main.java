@@ -15,10 +15,11 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
 
 
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("payment.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("login.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 666, 477);
         stage.setTitle("Log into Lovers Leap");
         stage.setScene(scene);
+
         //stage.initStyle(StageStyle.UTILITY);
         //stage.setResizable(false);
         stage.show();

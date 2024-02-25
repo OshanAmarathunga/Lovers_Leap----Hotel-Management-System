@@ -1,4 +1,5 @@
 package edu.ijse.lovers_leap.fxmlController;
+// #1D59A0
 import edu.ijse.lovers_leap.controller.ReceptionistController;
 import edu.ijse.lovers_leap.dto.ReceptionistsDto;
 import javafx.collections.FXCollections;
@@ -12,13 +13,17 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class ReceptionistsRegisterControllerFxml implements Initializable {
+public class ReceptionistsRegisterControllerFxml extends Stage implements Initializable {
+
     private ReceptionistController receptionistController;
     private Stage stage;
     private Scene scene;
@@ -48,8 +53,13 @@ public class ReceptionistsRegisterControllerFxml implements Initializable {
     private PasswordField txtPassword;
 
     @FXML
+    private Button btnBack;
+
+
+
+    @FXML
     void btnSubmitActionPerformed(ActionEvent event) {
-        if ((!txtPassword.getText().isEmpty()) & (!txtContatcNo.getText().isEmpty())){
+        if ((!txtPassword.getText().isEmpty()) & (!txtContatcNo.getText().isEmpty())) {
             try {
 
                 ReceptionistsDto receptionistsDto = new ReceptionistsDto(
@@ -116,10 +126,10 @@ public class ReceptionistsRegisterControllerFxml implements Initializable {
             } catch (Exception e) {
                 Alert alert2 = new Alert(Alert.AlertType.ERROR);
                 alert2.setTitle("Submission Error!!");
-                alert2.setContentText("Please enter Valid Data..."+e.getMessage());
+                alert2.setContentText("Please enter Valid Data..." + e.getMessage());
                 Optional<ButtonType> result = alert2.showAndWait();
             }
-        }else {
+        } else {
             Alert alert2 = new Alert(Alert.AlertType.ERROR);
             alert2.setTitle("Submission Error!!");
             String error = String.valueOf("Please Contatc No & Password should not be EMPTY");
@@ -132,8 +142,8 @@ public class ReceptionistsRegisterControllerFxml implements Initializable {
 
     @FXML
     void cmbHotelIdKeyPress(KeyEvent event) {
-        KeyCode k= event.getCode();
-        if(k.getCode()==10){
+        KeyCode k = event.getCode();
+        if (k.getCode() == 10) {
             txtPassword.requestFocus();
         }
 
@@ -141,8 +151,8 @@ public class ReceptionistsRegisterControllerFxml implements Initializable {
 
     @FXML
     void cmbPositionKeyPress(KeyEvent event) {
-        KeyCode k= event.getCode();
-        if(k.getCode()==10){
+        KeyCode k = event.getCode();
+        if (k.getCode() == 10) {
             cmbHotelId.requestFocus();
         }
 
@@ -150,8 +160,8 @@ public class ReceptionistsRegisterControllerFxml implements Initializable {
 
     @FXML
     void txtAgeKeyPress(KeyEvent event) {
-        KeyCode k= event.getCode();
-        if(k.getCode()==10){
+        KeyCode k = event.getCode();
+        if (k.getCode() == 10) {
             txtContatcNo.requestFocus();
         }
 
@@ -159,8 +169,8 @@ public class ReceptionistsRegisterControllerFxml implements Initializable {
 
     @FXML
     void txtContatcNoKeyPress(KeyEvent event) {
-        KeyCode k= event.getCode();
-        if(k.getCode()==10){
+        KeyCode k = event.getCode();
+        if (k.getCode() == 10) {
             cmbPosition.requestFocus();
         }
 
@@ -168,8 +178,8 @@ public class ReceptionistsRegisterControllerFxml implements Initializable {
 
     @FXML
     void txtFirstNameKeyPress(KeyEvent event) {
-        KeyCode k= event.getCode();
-        if(k.getCode()==10){
+        KeyCode k = event.getCode();
+        if (k.getCode() == 10) {
             txtLastName.requestFocus();
         }
 
@@ -177,8 +187,8 @@ public class ReceptionistsRegisterControllerFxml implements Initializable {
 
     @FXML
     void txtLastNameKeyPress(KeyEvent event) {
-        KeyCode k= event.getCode();
-        if(k.getCode()==10){
+        KeyCode k = event.getCode();
+        if (k.getCode() == 10) {
             txtAge.requestFocus();
         }
 
@@ -187,8 +197,8 @@ public class ReceptionistsRegisterControllerFxml implements Initializable {
 
     @FXML
     void txtPasswordKeyPress(KeyEvent event) {
-        KeyCode k= event.getCode();
-        if(k.getCode()==10){
+        KeyCode k = event.getCode();
+        if (k.getCode() == 10) {
             btnSubmit.requestFocus();
         }
 
@@ -196,10 +206,11 @@ public class ReceptionistsRegisterControllerFxml implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        cmbHotelId.setItems(FXCollections.observableArrayList("1] Hotel Lovers Leap","2] Hotel Grand Royal"));
-        cmbPosition.setItems(FXCollections.observableArrayList("Junior Receptionist","Senior Receptionist"));
+        cmbHotelId.setItems(FXCollections.observableArrayList("1] Hotel Lovers Leap", "2] Hotel Grand Royal"));
+        cmbPosition.setItems(FXCollections.observableArrayList("Junior Receptionist", "Senior Receptionist"));
     }
-    public ReceptionistsRegisterControllerFxml(){
-        receptionistController=new ReceptionistController();
+
+    public ReceptionistsRegisterControllerFxml() {
+        receptionistController = new ReceptionistController();
     }
 }

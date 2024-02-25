@@ -12,9 +12,9 @@
 
 <AnchorPane prefHeight="466.0" prefWidth="622.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ijse.lovers_leap.fxmlController.ReceptionistsRegisterControllerFxml">
     <children>
-        <Button fx:id="btnSubmit" layoutX="180.0" layoutY="388.0" mnemonicParsing="false" onAction="#btnSubmitActionPerformed" prefHeight="40.0" prefWidth="302.0" text="Submit">
+        <Button id="btna" fx:id="btnSubmit" layoutX="180.0" layoutY="388.0" mnemonicParsing="false" onAction="#btnSubmitActionPerformed" prefHeight="21.0" prefWidth="302.0" style="-fx-background-color: #1D59A0;" stylesheets="@Style.css" text="Submit" textFill="WHITE">
             <font>
-                <Font name="System Bold" size="18.0" />
+                <Font name="System Bold" size="15.0" />
             </font>
         </Button>
         <AnchorPane prefHeight="54.0" prefWidth="622.0" style="-fx-background-color: #7CC8F5;">

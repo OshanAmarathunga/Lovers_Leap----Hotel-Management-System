@@ -9,12 +9,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.util.Optional;
 
-public class LoginControllerFxml {
+public class LoginControllerFxml extends Stage{
     private ReceptionistController receptionistController = new ReceptionistController();
 
     Alert errorAlert = new Alert(Alert.AlertType.ERROR);
@@ -68,11 +70,13 @@ public class LoginControllerFxml {
                 if (receptionistController.getReceptionist(Integer.parseInt(txtUserId.getText())).getPassword().equals(txtPassword.getText())) {
                     try {
 
-                        Parent root;
-                        root = FXMLLoader.load(getClass().getResource("/edu/ijse/lovers_leap/home.fxml"));
+
+                        Parent root = FXMLLoader.load(getClass().getResource("/edu/ijse/lovers_leap/home.fxml"));
                         Stage stage1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
                         Scene scene1 = new Scene(root);
+                        scene1.getStylesheets().add(getClass().getResource("/edu/ijse/lovers_leap/Style.css").toExternalForm());
                         stage1.setScene(scene1);
+
                         stage1.show();
                         stage1.centerOnScreen();
                         stage1.setResizable(false);
@@ -98,15 +102,14 @@ public class LoginControllerFxml {
     @FXML
     void btnRegister(ActionEvent event) {
         try {
-            Parent root2 = FXMLLoader.load(getClass().getResource("/edu/ijse/lovers_leap/Receptionist_Register.fxml"));
-            Stage stage2 = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene2 = new Scene(root2);
-            stage2.setScene(scene2);
-            stage2.show();
-            stage2.centerOnScreen();
-            stage2.initStyle(StageStyle.UTILITY);
-            stage2.setResizable(false);
-
+            Stage pStage=new Stage();
+            pStage.initModality(Modality.APPLICATION_MODAL);
+            Parent root=FXMLLoader.load(getClass().getResource("/edu/ijse/lovers_leap/Receptionist_Register.fxml"));
+            pStage.setTitle("Register new Receptionist");
+            pStage.setScene(new Scene(root,622,466));
+            pStage.setResizable(false);
+            //pStage.initStyle(StageStyle.TRANSPARENT);
+            pStage.showAndWait();
         } catch (Exception e) {
             System.out.println(e);
         }
