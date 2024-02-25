@@ -125,7 +125,7 @@ public class RoomManagementControllerFxml implements Initializable {
         cmbHotel.setItems(cmbHot);
         ObservableList<String> list= FXCollections.observableArrayList();
         //list.add("Available");
-        list.add("Booked");
+        //list.add("Booked");
         list.add("Under Maintenance");
         list.add("Under Preparation");
 
@@ -154,29 +154,36 @@ public class RoomManagementControllerFxml implements Initializable {
 
     @FXML
     void btnDeleteAction(ActionEvent event) {
-        Alert alert1 = new Alert(Alert.AlertType.CONFIRMATION);
-        alert1.setTitle("Are You Sure ?");
-        alert1.setContentText("Your Data will be permanently delete ! ");
-        Optional<ButtonType> result = alert1.showAndWait();
-        if (result.get() == ButtonType.OK) {
-            try {
-                String resp = roomManagementController.deleteRoom(tblRooms.getSelectionModel().getSelectedItem().getRoomId());
-                Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
-                alert2.setTitle("Delete Successful!");
-                loadTable();
-                clear();
-                alert2.setContentText(resp);
-                Optional<ButtonType> result2 = alert2.showAndWait();
-            } catch (Exception e) {
-                Alert alert2 = new Alert(Alert.AlertType.ERROR);
-                alert2.setTitle("Error !");
-                loadTable();
-                clear();
-                alert2.setContentText(e.getMessage());
-                Optional<ButtonType> result2 = alert2.showAndWait();
-            }
+       if(!tblRooms.getSelectionModel().getSelectedItem().getStatus().equals("Booked")){
+           Alert alert1 = new Alert(Alert.AlertType.CONFIRMATION);
+           alert1.setTitle("Are You Sure ?");
+           alert1.setContentText("Your Data will be permanently delete ! ");
+           Optional<ButtonType> result = alert1.showAndWait();
+           if (result.get() == ButtonType.OK) {
+               try {
+                   String resp = roomManagementController.deleteRoom(tblRooms.getSelectionModel().getSelectedItem().getRoomId());
+                   Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
+                   alert2.setTitle("Delete Successful!");
+                   loadTable();
+                   clear();
+                   alert2.setContentText(resp);
+                   Optional<ButtonType> result2 = alert2.showAndWait();
+               } catch (Exception e) {
+                   Alert alert2 = new Alert(Alert.AlertType.ERROR);
+                   alert2.setTitle("Error !");
+                   loadTable();
+                   clear();
+                   alert2.setContentText(e.getMessage());
+                   Optional<ButtonType> result2 = alert2.showAndWait();
+               }
 
-        }
+           }
+       }else {
+           Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
+           alert1.setTitle("Booked Room");
+           alert1.setContentText("You can not Delete Booked Rooms!");
+           Optional<ButtonType> result = alert1.showAndWait();
+       }
 
     }
     @FXML
@@ -206,33 +213,40 @@ public class RoomManagementControllerFxml implements Initializable {
 
     @FXML
     void btnUpdateAction(ActionEvent event) {
-        if ((!txtRoomNo.getText().isEmpty()) & (!txtNoOfBeds.getText().isEmpty()) & (cmbStatus.getValue()!=null) & (cmbHotel.getValue()!=null)){
-            try {
-                int tempCatId=roomCategoryController.getIdByStringName(cmbCategory.getValue()).getFirst().getCatId();
+        if(!tblRooms.getSelectionModel().getSelectedItem().getStatus().equals("Booked")) {
+            if ((!txtRoomNo.getText().isEmpty()) & (!txtNoOfBeds.getText().isEmpty()) & (cmbStatus.getValue() != null) & (cmbHotel.getValue() != null)) {
+                try {
+                    int tempCatId = roomCategoryController.getIdByStringName(cmbCategory.getValue()).getFirst().getCatId();
 
-                int tempHId=hotelDetailController.getHotelByStringName(cmbHotel.getValue()).getFirst().getHotelId();
+                    int tempHId = hotelDetailController.getHotelByStringName(cmbHotel.getValue()).getFirst().getHotelId();
 
-                String rsp=roomManagementController.updateRoom(new RoomManagementDto(txtRoomNo.getText(),tempCatId,tempHId,Integer.parseInt(txtNoOfBeds.getText()),cmbStatus.getValue()));
-                Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
-                alert2.setTitle("Update Successful!");
-                loadTable();
-                clear();
-                alert2.setContentText(rsp);
-                Optional<ButtonType> result = alert2.showAndWait();
-            } catch (Exception e) {
+                    String rsp = roomManagementController.updateRoom(new RoomManagementDto(txtRoomNo.getText(), tempCatId, tempHId, Integer.parseInt(txtNoOfBeds.getText()), cmbStatus.getValue()));
+                    Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
+                    alert2.setTitle("Update Successful!");
+                    loadTable();
+                    clear();
+                    alert2.setContentText(rsp);
+                    Optional<ButtonType> result = alert2.showAndWait();
+                } catch (Exception e) {
+                    Alert alert2 = new Alert(Alert.AlertType.ERROR);
+                    alert2.setTitle("Fail!");
+                    loadTable();
+                    clear();
+                    alert2.setContentText(e.getMessage());
+                    Optional<ButtonType> result = alert2.showAndWait();
+                }
+
+            } else {
                 Alert alert2 = new Alert(Alert.AlertType.ERROR);
-                alert2.setTitle("Fail!");
-                loadTable();
-                clear();
-                alert2.setContentText(e.getMessage());
+                alert2.setTitle("Submission Error!!");
+                alert2.setContentText("All the text fields should not be EMPTY!");
                 Optional<ButtonType> result = alert2.showAndWait();
             }
-
-        } else {
-            Alert alert2 = new Alert(Alert.AlertType.ERROR);
-            alert2.setTitle("Submission Error!!");
-            alert2.setContentText("All the text fields should not be EMPTY!");
-            Optional<ButtonType> result = alert2.showAndWait();
+        }else {
+            Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
+            alert1.setTitle("Booked Room");
+            alert1.setContentText("You can not Update Booked Rooms!");
+            Optional<ButtonType> result = alert1.showAndWait();
         }
     }
 

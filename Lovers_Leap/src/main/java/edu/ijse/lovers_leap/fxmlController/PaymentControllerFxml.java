@@ -139,7 +139,7 @@ public class PaymentControllerFxml implements Initializable {
         try {
             if (!txtReservationID.getText().isEmpty() | !txtCustomerName.getText().isEmpty() | !txtRoomCost.getText().isEmpty() | !txtPackageCost.getText().isEmpty() | !txtDaysStayed.getText().isEmpty() | !cmbPaymentMethod.getValue().isEmpty()) {
                 try {
-                    pcDtos.add(new PaymentCartDto(Integer.parseInt(txtReservationID.getText()), ((Double.parseDouble(txtRoomCost.getText())) + (Double.parseDouble(txtPackageCost.getText()))), cmbPaymentMethod.getValue(), txtCustomerName.getText()));
+                    pcDtos.add(new PaymentCartDto(Integer.parseInt(txtReservationID.getText()), ((Double.parseDouble(txtRoomCost.getText())*Double.parseDouble(txtDaysStayed.getText())) + (Double.parseDouble(txtPackageCost.getText()))), cmbPaymentMethod.getValue(), txtCustomerName.getText()));
                     tblPaymentCart.setItems(pcDtos);
                     colReservationIDPC.setCellValueFactory(c -> new SimpleIntegerProperty(c.getValue().getReservationId()).asObject());
                     colAmoutPC.setCellValueFactory(c -> new SimpleDoubleProperty(c.getValue().getAmount()).asObject());

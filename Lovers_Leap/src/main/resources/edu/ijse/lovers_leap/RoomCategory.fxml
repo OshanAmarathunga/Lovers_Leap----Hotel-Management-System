@@ -31,7 +31,7 @@
             <columns>
                 <TableColumn fx:id="colCategoryID" prefWidth="74.39996337890625" text="Category ID" />
                 <TableColumn fx:id="colCategoryName" prefWidth="116.800048828125" text="Category Name" />
-                <TableColumn fx:id="colCostPerNight" prefWidth="105.60003662109375" text="Cost Per Nigh" />
+                <TableColumn fx:id="colCostPerNight" prefWidth="105.60003662109375" text="Cost Per Night" />
                 <TableColumn fx:id="colDescription" prefWidth="260.0" text="Description" />
             </columns>
         </TableView>

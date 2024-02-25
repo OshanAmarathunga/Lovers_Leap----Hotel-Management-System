@@ -32,7 +32,7 @@ public class RoomManagementServiceImpl implements RoomManagementService {
     @Override
     public String deleteRoom(String Id) throws Exception {
         if (roomManagementDao.deleteRoomByStringID(Id)) {
-            return "Successfully Deleted the Receptionist!";
+            return "Successfully Deleted the Room!";
         } else {
             return "Fail to Delete !";
         }
