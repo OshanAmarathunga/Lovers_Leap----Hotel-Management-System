@@ -2,9 +2,13 @@ package edu.ijse.lovers_leap.fxmlController;
 
 import edu.ijse.lovers_leap.controller.CustomerController;
 import edu.ijse.lovers_leap.controller.HotelDetailController;
+import edu.ijse.lovers_leap.controller.LoginController;
 import edu.ijse.lovers_leap.controller.ReceptionistController;
 import edu.ijse.lovers_leap.dto.CustomerDto;
 import edu.ijse.lovers_leap.dto.HotelDto;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -26,9 +30,14 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -39,6 +48,7 @@ public class HomeFxmlController implements Initializable {
     private ReceptionistController receptionistController;
     private LoginControllerFxml loginControllerFxml;
     private HotelDetailController hotelDetailController;
+    private LoginController loginController;
 
 
 
@@ -113,6 +123,8 @@ public class HomeFxmlController implements Initializable {
 
     @FXML
     private Label lblShowReceiptionistName;
+    @FXML
+    private Label lblShowRealTime;
 
     @FXML
     private Label lblShowSeacrheCustomerId;
@@ -141,11 +153,29 @@ public class HomeFxmlController implements Initializable {
     @FXML
     private TextField txtNICnumber;
 
+
+    {
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> updateTime())
+        );
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
+    }
+
+
+    private void updateTime() {
+
+        LocalTime time=LocalTime.now();
+        DateTimeFormatter formatter=DateTimeFormatter.ofPattern("hh:mm:ss");
+        String timetoString=time.format(formatter);
+        lblShowRealTime.setText(timetoString);
+    }
+
     public HomeFxmlController() {
         customerController = new CustomerController();
         receptionistController = new ReceptionistController();
         loginControllerFxml = new LoginControllerFxml();
         hotelDetailController = new HotelDetailController();
+        loginController=new LoginController();
     }
     @FXML
     void btnPaymentAction(ActionEvent event) {
@@ -482,7 +512,18 @@ public class HomeFxmlController implements Initializable {
         cmbGender.setItems(FXCollections.observableArrayList("Male", "Female"));
         loadCustomerTable();
         loadCmbCountry();
+        showReceptionist();
 
+    }
+    void showReceptionist(){
+        try {
+            String name=receptionistController.getReceptionist(loginController.getLastLoginDetails().getUserId()).getFirstName();
+            System.out.println(name);
+            lblShowReceiptionistName.setText(name);
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     void loadCmbCountry() {

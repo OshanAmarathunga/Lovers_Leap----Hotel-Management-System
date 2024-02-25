@@ -1,5 +1,7 @@
 package edu.ijse.lovers_leap.fxmlController;
+import edu.ijse.lovers_leap.controller.LoginController;
 import edu.ijse.lovers_leap.controller.ReceptionistController;
+import edu.ijse.lovers_leap.dto.LoginDto;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,10 +16,15 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.Optional;
 
 public class LoginControllerFxml extends Stage{
     private ReceptionistController receptionistController = new ReceptionistController();
+    private LoginController loginController=new LoginController();
 
     Alert errorAlert = new Alert(Alert.AlertType.ERROR);
 //    private Stage stage;
@@ -38,6 +45,20 @@ public class LoginControllerFxml extends Stage{
     private Button btnSearch;
     @FXML
     private TextField txtMobileNo;
+
+    String getCurrentTime(){
+        LocalTime time=LocalTime.now();
+        DateTimeFormatter formatter=DateTimeFormatter.ofPattern("hh:mm:ss");
+        String timetoString=time.format(formatter);
+        return timetoString;
+
+    }
+    String getCurrentDate(){
+        LocalDate date=LocalDate.now();
+        DateTimeFormatter formatter=DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String dateString =date.format(formatter);
+        return dateString;
+    }
 
     @FXML
     void btnSearchAction(ActionEvent event) {
@@ -69,6 +90,8 @@ public class LoginControllerFxml extends Stage{
             try {
                 if (receptionistController.getReceptionist(Integer.parseInt(txtUserId.getText())).getPassword().equals(txtPassword.getText())) {
                     try {
+                        String resp=loginController.saveLogin(new LoginDto(getCurrentTime(),getCurrentDate(),Integer.parseInt(txtUserId.getText())));
+                        System.out.println(resp);
 
 
                         Parent root = FXMLLoader.load(getClass().getResource("/edu/ijse/lovers_leap/home.fxml"));
@@ -81,6 +104,9 @@ public class LoginControllerFxml extends Stage{
                         stage1.centerOnScreen();
                         stage1.setResizable(false);
                         stage1.initStyle(StageStyle.UTILITY);
+
+
+
 
                     } catch (Exception e) {
                         System.out.println(e);

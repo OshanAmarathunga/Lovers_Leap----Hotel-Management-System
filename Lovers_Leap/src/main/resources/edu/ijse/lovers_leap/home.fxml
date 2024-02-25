@@ -16,23 +16,23 @@
     <children>
         <AnchorPane layoutX="-4.0" layoutY="175.0" prefHeight="465.0" prefWidth="212.0" style="-fx-background-color: #112251;">
             <children>
-                <Line endX="66.86666870117188" layoutX="119.0" layoutY="149.0" startX="-100.0" stroke="WHITE" />
+                <Line endX="66.86666870117188" layoutX="118.0" layoutY="216.0" startX="-100.0" stroke="WHITE" />
                 <Button fx:id="btnReceiptionist" layoutX="23.0" layoutY="423.0" mnemonicParsing="false" onAction="#btnReceiptionistAction" prefHeight="26.0" prefWidth="158.0" text="Receptionist">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Button>
-                <Button fx:id="btnRoomCategories" layoutX="23.0" layoutY="376.0" mnemonicParsing="false" onAction="#btnRoomCategoryAction" prefHeight="26.0" prefWidth="158.0" text="Room Category">
+                <Button fx:id="btnRoomCategories" layoutX="23.0" layoutY="385.0" mnemonicParsing="false" onAction="#btnRoomCategoryAction" prefHeight="26.0" prefWidth="158.0" text="Room Category">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Button>
-                <Button fx:id="btnAvailabeRooms" layoutX="23.0" layoutY="280.0" mnemonicParsing="false" onAction="#btnRoomManagementAction" prefHeight="26.0" prefWidth="158.0" text="Room Management">
+                <Button fx:id="btnAvailabeRooms" layoutX="23.0" layoutY="309.0" mnemonicParsing="false" onAction="#btnRoomManagementAction" prefHeight="26.0" prefWidth="158.0" text="Room Management">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Button>
-                <Button fx:id="btnHotelDetails" layoutX="23.0" layoutY="331.0" mnemonicParsing="false" onAction="#btnHotelDetailAction" prefHeight="26.0" prefWidth="158.0" text="Hotel Details">
+                <Button fx:id="btnHotelDetails" layoutX="23.0" layoutY="347.0" mnemonicParsing="false" onAction="#btnHotelDetailAction" prefHeight="26.0" prefWidth="158.0" text="Hotel Details">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
@@ -47,11 +47,11 @@
                         <Font name="Arial Bold" size="23.0" />
                     </font>
                 </Label>
-                <Label fx:id="lblShowReceiptionistName" layoutX="88.0" layoutY="114.0" text="Label" textFill="WHITE">
+                <Label fx:id="lblShowReceiptionistName" alignment="CENTER" contentDisplay="CENTER" layoutX="27.0" layoutY="103.0" prefHeight="27.0" prefWidth="158.0" text="Label" textFill="WHITE">
                     <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font name="System Bold" size="20.0" />
                     </font></Label>
-                <Button fx:id="btnReservation" layoutX="23.0" layoutY="165.0" mnemonicParsing="false" onAction="#btnReservationAction" prefHeight="46.0" prefWidth="158.0" text="Reservation">
+                <Button fx:id="btnReservation" layoutX="23.0" layoutY="224.0" mnemonicParsing="false" onAction="#btnReservationAction" prefHeight="46.0" prefWidth="158.0" text="Reservation">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
@@ -189,5 +189,10 @@
                 <Font name="System Bold" size="15.0" />
             </font>
         </Button>
+      <Label fx:id="lblShowRealTime" alignment="CENTER" layoutX="25.0" layoutY="141.0" prefHeight="17.0" prefWidth="168.0">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

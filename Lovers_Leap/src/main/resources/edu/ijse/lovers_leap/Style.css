@@ -17,3 +17,12 @@
 #btnp:hover{
     -fx-background-color: #7D0552;
 }
+
+#btnLogout{
+    -fx-background-image: url("images/logout.png");
+    -fx-background-size: 38px 38px;
+}
+
+/*#btnLogout{*/
+/*    -fx-background-color: #2980b9;*/
+/*}*/

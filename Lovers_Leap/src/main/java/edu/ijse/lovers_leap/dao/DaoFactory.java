@@ -34,12 +34,14 @@ public class DaoFactory {
                 return new PaymentSummaryDaoImpl();
             case PAYMENT_DETAIL:
                 return new PaymentDetailDaoImpl();
+            case LOGIN:
+                return new LoginDaoImpl();
             default:
                 return null;
         }
     }
 
     public enum DaoTypes{
-        RECEPTIONIST,CUSTOMER,HOTELDETAIL,ROOMCATEGORY,ROOMMANAGEMENT,RESERVATION,PAYMENT_SUMMARY, PAYMENT_DETAIL;
+        RECEPTIONIST,CUSTOMER,HOTELDETAIL,ROOMCATEGORY,ROOMMANAGEMENT,RESERVATION,PAYMENT_SUMMARY, PAYMENT_DETAIL,LOGIN;
     }
 }

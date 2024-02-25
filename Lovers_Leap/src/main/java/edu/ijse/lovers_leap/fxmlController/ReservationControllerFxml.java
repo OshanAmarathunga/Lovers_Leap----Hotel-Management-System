@@ -410,7 +410,7 @@ public class ReservationControllerFxml implements Initializable {
 
         if(tblRoomStatus.getSelectionModel().getSelectedItem().getStatus()!=null){
             String rst=tblRoomStatus.getSelectionModel().getSelectedItem().getStatus();
-            if(rst.equals("Available")){
+            if(rst.equals("Available") | rst.equals("Ready") ){
                 txtRoomId.setText(tblRoomStatus.getSelectionModel().getSelectedItem().getRoomId());
                 try {
                     String selectedRoomCategory=roomCategoryController.get(tblRoomStatus.getSelectionModel().getSelectedItem().getCatId()).getRoomCatName();

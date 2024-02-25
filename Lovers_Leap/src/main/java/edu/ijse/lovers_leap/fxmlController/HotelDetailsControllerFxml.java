@@ -1,5 +1,7 @@
 package edu.ijse.lovers_leap.fxmlController;
 import edu.ijse.lovers_leap.controller.HotelDetailController;
+import edu.ijse.lovers_leap.controller.LoginController;
+import edu.ijse.lovers_leap.controller.ReceptionistController;
 import edu.ijse.lovers_leap.dto.HotelDto;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -20,6 +22,9 @@ import java.util.ResourceBundle;
 
 public class HotelDetailsControllerFxml implements Initializable {
     HotelDetailController hotelDetailController;
+    ReceptionistController receptionistController;
+
+
     @FXML
     private Button btnAdd;
 
@@ -61,8 +66,12 @@ public class HotelDetailsControllerFxml implements Initializable {
 
     @FXML
     private TextField txtHotelName;
+    @FXML
+    private Label lblShowReceiptionistName;
     public HotelDetailsControllerFxml() {
         hotelDetailController = new HotelDetailController();
+        receptionistController=new ReceptionistController();
+
     }
 
     @FXML
@@ -217,6 +226,8 @@ public class HotelDetailsControllerFxml implements Initializable {
         txtDistrict.setText("");
         txtContatcNo.setText("");
     }
+
+
 
     public ObservableList<HotelDto> getHotelList() {
         ObservableList<HotelDto> hotelList = FXCollections.observableArrayList();
