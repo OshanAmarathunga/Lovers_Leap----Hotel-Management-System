@@ -92,3 +92,13 @@ CONSTRAINT FOREIGN KEY(Res_ID) REFERENCES Reservation (Res_Id));
 --------------------------------------------------------------------------------------------------------------------------------------
 
 SELECT MAX(Res_Id) AS Last_Pay_Id FROM Reservation;
+-----------------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE login_Details(
+Login_Detail_Id int AUTO_INCREMENT,
+login_time Time not null,
+login_Date Date Not Null,
+user_id int not null,
+CONSTRAINT PRIMARY KEY (Login_Detail_Id));
+
+SELECT Login_Detail_Id, login_time, login_Date, user_id FROM Login_Details having Login_Detail_Id=(SELECT MAX(Login_Detail_Id) AS Last_Pay_Id FROM Login_Details)
+-----------------------------------------------------------------------------------------------------------------------------------
